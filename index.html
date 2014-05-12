@@ -1,5 +1,257 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Jesse Clark&rsquo;s Homepage</title>
+    <!--<meta http-equiv="REFRESH" content="0;url=http://JesseJohnClark.com/">-->
+	<style>
+	    body {
+	        background: BlanchedAlmond;
+	        //background: url(http://olegvolk.net/newsite/texturelibrary/sandstone2.jpg);
+	        color: DarkGoldenrod;
+            font-size: 14pt;
+        }
+        a:link {
+            color: Olive;
+        }
+        h1 {
+            margin: 1em;
+            text-align: center;
+	        font-family: Gabriola, Apple Chancery, cursive;
+        }
+        .obelisk {
+            position: relative;
+        	left: 33.3%;
+        	width: 33.4%;
+        	padding: 1.5em 0; /* b */
+            -webkit-perspective: 1000;
+            -webkit-perspective-origin-x: 250%;
+            -webkit-perspective-origin-y: 100%;
+        }
+        .obelisk>div {
+            background: Wheat;
+            padding: 0 1em 0.5em 1em; /* a, c */
+            border-left: 1.5em solid Wheat; /* b */
+            border-right: 1.5em solid Wheat; /* b */
+        }
+        .obelisk>div:before, .obelisk>div:after {
+            display: block;
+            content: " ";
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-left: 1.5em solid BlanchedAlmond; /* b */
+            border-left: 1.5em solid transparent; /* b */
+            border-right: 1.5em solid BlanchedAlmond; /* b */
+            border-right: 1.5em solid transparent; /* b */
+        }
+        .obelisk>div:before {
+            top: 0em;
+            border-bottom: 1.5em solid Wheat; /* b */
+        }
+        .obelisk>div:after {
+            bottom: 0;
+            border-top: 1.5em solid Wheat; /* b */
+        }
+        
+        .obelisk>divx {
+            border-top: 1.5em solid Wheat;
+        }
+        .obelisk>div:beforex {
+            border: 0;
+            height: 1.5em;
+            width: 1.5em;
+            background: BlanchedAlmond;
+            border-bottom-right-radius: 1.5em;
+            top: 1.5em;
+            left: 0em;
+            margin-right: -1.5em;
+            // would like to make decorations position:absolute
+            // and have them cover transparent borders
+        }
+        
+        .obelisk>.shadow {
+            display: block;
+            display: none;
+            content: " ";
+            position: absolute;
+            width: 100%;
+            background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(black));
+            opacity: .5;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            top: 1.5em;
+            bottom: 1em;
+            z-index: -10;
+            -webkit-transform-origin: center bottom;
+            -webkit-transform: translateZ(-1em) rotateX(45deg) ;
+        }
+        .obelisk>.shadow:after {
+            bottom: -1.5em;
+            border-top: 1.5em solid black;
+        }
+        .obelisk>.shadow:before {
+            opacity: .5;
+            top: -1.5em;
+            border-bottom: 1.5em solid rgba(0,0,0,0.1);
+        }
+        
+        .karma {
+            margin-top: 1em;
+            display: none;
+        }
+        
+        .obelisk>*>ul {
+            margin: 0;
+            padding: 0;
+        	list-style-type: none;
+        }
+        
+        .obelisk .sidebar {
+        	display: none;
+        }
+        
+        .obelisk *:hover>.sidebar {
+            display: inline;
+            //width: 50%;
+            white-space: nowrap;
+            background: Wheat;
+            padding: 1em; /* d */
+            margin-top: -1em; /* -d */
+        }
+        .obelisk *:hover>.sidebar:before {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0px;
+            border-bottom: 1.5em solid BlanchedAlmond; /* e */
+            border-bottom: 1.5em solid transparent; /* e */
+            border-top: 1.5em solid BlanchedAlmond; /* e */
+            border-top: 1.5em solid transparent; /* e */
+        }
+        
+        .obelisk *:hover>.sidebar.right {
+            position: absolute;
+            left: 100%;
+            text-align: left;
+            margin-left: 1.5em; /* e */
+        }
+        .obelisk *:hover>.sidebar.right:before {
+            left: -1.5em; /* -e */
+            border-right: 1.5em solid Wheat; /* e */
+        }
+        
+        .obelisk *:hover>.sidebar.left {
+            position: absolute;
+            right: 100%;
+            text-align: right;
+            margin-right: 1.5em; /* e */
+        }
+        .obelisk *:hover>.sidebar.left:before {
+            right: -1.5em; /* -e */
+            border-left: 1.5em solid Wheat; /* e */
+        }
+	</style>
+</head>
 <body>
-Hello
+<h1>Jesse Clark</h1>
+
+<!--
+todo: pcb connectors
+todo: try inverted rounded corners
+todo: try diagonal outlines
+todo: dynamically load some stuff
+todo: distance from corner to text should be same as distance from sides to text
+<div style="background: cyan;    position: absolute; left: 00.0%; width: 33.3%; height: 5em">x</div>
+<div style="background: magenta; position: absolute; left: 33.3%; width: 33.4%; height: 5em;">y</div>
+<div style="background: yellow;  position: absolute; left: 66.7%; width: 33.3%; height: 5em;">z</div>
+<br/><br/><br/><br/><br/><br/>
+<div style="text-align: center; z-index: 50;"> this is the text directly before the obelisk appears</div>
+-->
+
+<div class="obelisk">
+<div class="shadow"></div>
+<div class="corners">
+<ul>
+    <li><a href="jobs/">R&eacute;sum&eacute;</a></li>
+    <br/>
+    <li><a href="http://www.linkedin.com/profile/view?id=5026500">LinkedIn</a></li>
+    <li><a href="https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&field0-0-0=attachments.submitter&type0-0-0=equals&value0-0-0=jjclark1982%40gmail.com">Bugzilla</a></li>
+    <li><a href="http://github.com/jjclark1982">GitHub</a></li>
+    <li><a href="http://stackoverflow.com/users/503963/phssthpok">Stack Overflow</a></li>
+    <br/>
+    <li>
+        <a href="http://www.google.com/reader/shared/jjclark1982">Reader</a>
+        <span class="sidebar right" id="buzz_update_list">Buzz</span>
+    </li>
+    <li><a href="http://twitter.com/myhf">Twitter</a><span class="sidebar left" id="twitter_update_list">tweet</span></li>
+    <li><a href="https://foursquare.com/myhf">Foursquare</a></li>
+    <li><a href="http://jjclark.posterous.com/">Posterous</a></li>
+    <li><a href="http://www.facebook.com/jesse.j.clark">Facebook</a></li>
+    <li><a href="http://www.google.com/profiles/jjclark1982">Google Plus</a></li>
+    <li><a href="http://www.flickr.com/photos/myhf">Flickr</a></li>
+    <li><a href="http://www.shelfari.com/phssthpok">Shelfari</a></li>
+    <!--<div id="ShelfariWidget163066"><a href='http://www.shelfari.com/'>Shelfari: Book reviews on your book blog</a><script src="http://www.shelfari.com/ws/163066/widget.js" type="text/javascript" language="javascript"></script><noscript><p>Find new <a href="http://www.shelfari.com/books">books</a> and literate friends with Shelfari, the online <a href="http://www.shelfari.com/">book club</a>.</p></noscript></div>-->
+    <li><a href="http://old.thesixtyone.com/#/Phssthpok/">thesixtyone</a></li>
+    <br/>
+    <li><a href="http://https://twitter.com/spelunkyadvice">Bad Spelunky Advice</a></li>
+    <li><a href="http://www.asiteforthat.com/">A Site For That</a></li>
+    <li><a href="http://awkwardzippers.posterous.com/">Awkward Zippers</a></li>
+    <li><a href="http://collusiongames.com/">Collusion Games</a></li>
+    <li><a href="http://www.bay12forums.com/smf/index.php?topic=50486.0">Dwarf Fortress Tileset</a></li>
+    <li><a href="http://www.woz.org/wozscape/worldseries.html">World Series Calculator</a></li>
+    <!--<li><a href="http://www.forumwarz.com/incit/wins_for/Phssthpokk">INCIT</a></li>-->
+    <!--<li><a href="http://forums.somethingawful.com/member.php?action=getinfo&userid=68217&username=Phssthpok">Something Awful</a></li>-->
+    <!--<li><a href="http://www.kuro5hin.org/user/Phssthpok">Kuro5hin</a></li>-->
+    <!--<li><a href="http://www.everything2.com/index.pl?node=Phssthpok">everything2</a></li>-->
+    <!--<li><a href="http://www.metafilter.com/user/66830">MetaFilter</a></li>-->
+    <!--<li><a href="http://us.battle.net/sc2/en/profile/799094/1/myhf/">Starcraft II</a></li>-->
+    <!--<li><a href="http://www.sc2ranks.com/us/799094/myhf">Starcraft 2 Rankings</a></li>-->
+    <!--<li><a href="http://steamcommunity.com/id/myhf/">Steam</a></li>-->
+    <!--<li><a href="http://www.reddit.com/user/myhf/">Reddit</a></li>-->
+    
+    <div class="karma">
+        <!-- BEGIN DUCK DUCK GO KARMA WIDGET CODE //-->
+        <script type="text/javascript">
+        ddg_k_title='My Karma';
+        ddg_k_bold_karma='1';
+        ddg_k_link_karma='0';
+        ddg_k_link_label='0';
+        ddg_k_show_username='0';
+        ddg_k_show_service_name='1';
+        ddg_k_paren_karma='0';
+        ddg_k_vertical_spacing='5';
+        ddg_k_column_width='180';
+        ddg_k_padding='5';
+        ddg_k_font_size='9pt';
+        ddg_k_font_color='';
+        ddg_k_font_family='';
+        ddg_k_border='1px solid #AAA';
+        </script>
+        <div id="ddg_k" style="width:150px;font-size:9pt;border:1px solid #AAA;padding:5px;text-align:left;">-
+        <div style="padding:0;margin:0;padding-top:5px;z-index:20; "><a href="http://4chan.org/" style="font-size:14px;text-decoration:none !important; background:transparent url('http://www.4chan.org/favicon.ico') no-repeat center left; padding-left:16px; display:inline;"></a> &nbsp;&nbsp; <a style="display:inline;" href="http://4chan.org/">4chan</a> anonymous</div>
+        <div style="text-align: right; font-size: 80%; padding-top: 5px;">by <a style="display:inline;list-style-type:none;" href="http://duckduckgo.com/">DuckDuckGo</a></div></div>
+        <script type="text/javascript" src="http://karma.duckduckgo.com/k.js?t=5,6,F,D,1,2&u=JesseJohnClark,myhf,jjclark1982,503963,myhf,myhf"></script>
+        <!-- END DUCK DUCK GO KARMA WIDGET CODE //-->
+    </div>
+
+</ul>    
+</div></div>
+<!--
+<div style="text-align: center; z-index: 50;"> this is the text Directly after the obelisk appears</div>
+<div style="text-align: center; z-index: 50;"> this is the text less Directly after the obelisk appears</div>
+-->
+
 </body>
+<script>
+twitterCallback = function(twitter_user) {
+    document.getElementById("twitter_update_list").innerHTML = twitter_user.status.text;
+}
+buzzCallback = function(buzz) {
+    document.getElementById("buzz_update_list").innerHTML = buzz.data.items[0].object.content;
+}
+</script>
+<script type="text/javascript" src="http://api.twitter.com/users/show.json?screen_name=myhf&callback=twitterCallback"></script>
+<script type="text/javascript" src="https://www.googleapis.com/buzz/v1/activities/jjclark1982/@public?&alt=json&callback=buzzCallback"></script>
 </html>
