@@ -32,6 +32,9 @@
 	        text-decoration: none;
 	    }
 
+        .USContact {
+            display: none;
+        }
         .Contact {
             font-size: small;
             text-align: center;
@@ -47,12 +50,12 @@
             list-style-type: none;
             padding: 0;
         }
-        .Contact .email, .Contact .phone {
+        .Contact .email, .Contact .phone, .Contact .address {
             display: inline;
             padding: 0.75em;
         }
-        .Contact .address {
-            padding-top: 0.5em;
+        .Contact .note {
+            padding: 0.25em;
         }
         
         .organization {
@@ -110,30 +113,44 @@ Click <a href="jjclark-resume.pdf">here</a> to download this page as a printer-f
 
 <script>
 var data = {
-    "Contact": [
+    "USContact": [
         {
             email: '<a href="mailto:jesse@modusponens.org">jesse@modusponens.org</a>',
             phone: '<a href="tel:+1-408-888-8883">(408) 888-8883</a>',
-            address: '21435 Summit Road, Los Gatos, CA 95033'
+            address: '21435 Summit Road, Los Gatos, CA 95033.'
+        }
+    ],
+    "Contact": [
+        {
+            phone: '<a href="tel:+61 459 763 305">+61 459 763 305</a>',
+            address: '6/18 Thrupp St., Neutral Bay, NSW 2089',
+            email: '<a href="mailto:jesse@modusponens.org">jesse@modusponens.org</a>',
+            note: 'Eligible to work in Australia and in the United States.'
         }
     ],
     "Experience": [
         {
+            organization: 'Maverick Poker',
+            date: "2014",
+            position: 'Lead Backend Developer',
+            description: 'Implemented a data and permissions model in <a href="http://firebase.com/">Firebase</a> for an online Poker game.'
+        },
+        {
             organization: '<a href="http://destinationsc.co/">Destination Software</a>',
-            date: "2013 -- Present",
+            date: "2013 -- 2014",
             position: 'Engine Architect and Product Developer',
             description: "Developed an e-commerce web server for the travel and hospitality industry. Implemented automated deployment and zero-downtime updates of Node.js and Riak servers. Supported web-accessible map/reduce queries of combined domain data and analytics data."
         },
         {
             organization: '<a href="https://www.onelessdesk.com.au/">OneLessDesk</a>',
             date: "2014",
-            description: "Built a message-queue-based tool to manage business processes involving remote workers, for the accounting industry."
+            description: "Built a message-queue-based tool for business process management."
         },
         {
             organization: '<a href="http://www.gobold.ly/">GoBoldly</a>',
             date: "2013",
             position: 'Full-Stack Developer',
-            description: "Implemented a web transport layer that renders javascript views on the backend, transmits a page which works without javascript, then progressively enhances the page with the same views that were used to render it. Implemented an iOS frontend and Parse.com backend for a geo-social networking app."
+            description: 'Implemented a novel isomorphic web application engine that works even in javascript-disabled environments, and progressively enhances based on available functionality. Implemented an iOS frontend and <a href="parse.com">Parse.com</a> backend for a geo-social networking app.'
         },
         {
             organization: '<a href="http://www.scanadu.com/">Scanadu</a>',
@@ -143,7 +160,7 @@ var data = {
         {
             organization: '<a href="http://www.noledgy.com/">Noledgy</a>',
             date: "2012",
-            description: "iOS development, remote update and disable of deployed applications."
+            description: "Developed infrastructure for remote update and disable of an iOS application."
         },
         {
             organization: '<a href="http://www.solarcity.com/">SolarCity</a>',
