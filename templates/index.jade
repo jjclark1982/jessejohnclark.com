@@ -2,15 +2,22 @@ doctype html
 html
   head
     title= title + " | " + site.title
-    link(rel='stylesheet', href='/style.css')
+    link(rel='stylesheet', href='/assets/normalize.css')
+    link(rel='stylesheet', href='/assets/style.css')
+    - if (customScript)
+        script!= customScript
   body
-    h1= title
-    p!= contents
-    ul
-        each item in collections[collectionName]
-            li
-                a(href="/"+item.path)= item.title
-                p!= item.less
-
-    each sidebar in collections.widgets
-        div!= sidebar.contents
+    .parallax
+        .parallax__layer.parallax__layer--back
+        .parallax__layer.parallax__layer--base
+            .parallax__section
+                h1= title
+                p!= contents
+            ul.parallax__section
+                each item in collections[collectionName]
+                    li
+                        a(href="/"+item.path)= item.title
+                        - if (item.less)
+                            p!= item.less
+            each widget in collections.widgets
+                div.parallax__section!= widget.contents

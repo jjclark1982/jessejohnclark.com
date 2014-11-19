@@ -3,7 +3,10 @@ html
   head
     title= title
     meta(name='description', content= description)
-    link(rel='stylesheet', href='/style.css')
+    link(rel='stylesheet', href='/assets/normalize.css')
+    link(rel='stylesheet', href='/assets/style.css')
+    - if (customScript)
+        script!= customScript
   body
     h1= title
     p= description
