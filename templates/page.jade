@@ -8,6 +8,13 @@ html
     if (customScript)
         script!= customScript
   body
-    h1= title
-    p= description
-    p!= contents
+    .container
+        header
+            h1= title
+            p= description
+
+        article!= contents
+
+        nav
+            each widget in collections.widgets
+                .widget!= widget.contents

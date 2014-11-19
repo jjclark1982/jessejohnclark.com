@@ -12,24 +12,21 @@ html
     if (customScript)
         script!= customScript
   body
-    .parallax
-        .parallax__layer.parallax__layer--back
-        .parallax__layer.parallax__layer--base
-            .parallax__section
-                h1
-                    a(href="/")= site.title
-                p!= contents
+    .container
+        header
+            h1
+                a(href="/")= site.title
+            p!= contents
 
-            ul.parallax__section
-                -if (pagination)
-                    each file in pagination.files
-                        li
-                            a(href="/"+file.path)= file.title
-                            - if (file.less)
-                                p!= file.less
+        section
+            each file in pagination.files
+                article
+                    a(href="/"+file.path)= file.title
+                    - if (file.less)
+                        div!= file.less
 
             if (pagination.pages.length > 1)
-                ul.parallax__section
+                uldiv
                     if pagination.previous
                         a(href="/"+pagination.previous.path) « Previous Page |
                     span!= "&nbsp;"
@@ -47,5 +44,6 @@ html
                     if pagination.next
                         a(href="/"+pagination.next.path) | Next Page »
 
+        nav
             each widget in collections.widgets
-                div.parallax__section!= widget.contents
+                .widget!= widget.contents

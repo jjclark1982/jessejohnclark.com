@@ -3,6 +3,7 @@
   "clean": false,
   "metadata": {
     "title": "Jesse Clark’s Home Page",
+    "author": "Jesse Clark",
     "site": {
       "title": "Jesse Clark’s Blog",
       "description": "Journals of the Expedition.",
@@ -20,11 +21,11 @@
     "metalsmith-gravatar": {
       "Jesse Clark": "jjclark1982@gmail.com"
     },
+    "metalsmith-markdown": {},
     "metalsmith-more": {
-      "ext": "md",
+      "ext": "html",
       "alwaysAddKey": false
     },
-    "metalsmith-markdown": {},
     "metalsmith-permalinks": {
       "pattern": ":collection/:title"
     },
