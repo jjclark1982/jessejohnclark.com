@@ -1,23 +1,51 @@
 doctype html
+if (pagination.num === 1)
+    - pageTitle = title
+else
+    - pageTitle = "Page " + pagination.num + " | " + title
+
 html
   head
-    title= title + " | " + site.title
+    title= pageTitle
     link(rel='stylesheet', href='/assets/normalize.css')
     link(rel='stylesheet', href='/assets/style.css')
-    - if (customScript)
+    if (customScript)
         script!= customScript
   body
     .parallax
         .parallax__layer.parallax__layer--back
         .parallax__layer.parallax__layer--base
             .parallax__section
-                h1= title
+                h1
+                    a(href="/")= site.title
                 p!= contents
+
             ul.parallax__section
-                each item in collections[collectionName]
-                    li
-                        a(href="/"+item.path)= item.title
-                        - if (item.less)
-                            p!= item.less
+                -if (pagination)
+                    each file in pagination.files
+                        li
+                            a(href="/"+file.path)= file.title
+                            - if (file.less)
+                                p!= file.less
+
+            if (pagination.pages.length > 1)
+                ul.parallax__section
+                    if pagination.previous
+                        a(href="/"+pagination.previous.path) « Previous Page |
+                    span!= "&nbsp;"
+                    b
+                        a(href="/"+path)= "Page "+pagination.num
+                    if false
+                        each page in pagination.pages
+                            if (page.pagination.num == pagination.num)
+                                b
+                                    a(href="/"+page.path)= "Page "+page.pagination.num
+                            else
+                                a(href="/"+page.path)= "Page "+page.pagination.num
+                            span!= "&nbsp;"
+                    span!= "&nbsp;"
+                    if pagination.next
+                        a(href="/"+pagination.next.path) | Next Page »
+
             each widget in collections.widgets
                 div.parallax__section!= widget.contents

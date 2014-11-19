@@ -15,6 +15,8 @@ config.plugins['metalsmith-watch'] = {
     livereload: true
 };
 config.metadata.customScript = "document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')";
+config.plugins['metalsmith-publish'].draft = true;
+config.plugins['metalsmith-publish'].future = true;
 
 // run the standard CLI
 require('metalsmith/bin/metalsmith');

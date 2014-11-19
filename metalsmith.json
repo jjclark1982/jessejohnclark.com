@@ -2,16 +2,21 @@
   "source": "./contents",
   "clean": false,
   "metadata": {
-    "title": "Jesse Clark's Home Page",
+    "title": "Jesse Clark’s Home Page",
     "site": {
-      "title": "Jesse Clark's Blog",
+      "title": "Jesse Clark’s Blog",
       "description": "Journals of the Expedition.",
       "url": "http://jessejohnclark.com",
       "author": "Jesse Clark"
     }
   },
   "plugins": {
-    "metalsmith-drafts": {},
+    "metalsmith-publish": {
+      "draft": false,
+      "private": false,
+      "future": false,
+      "futureMeta": "date"
+    },
     "metalsmith-gravatar": {
       "Jesse Clark": "jjclark1982@gmail.com"
     },
@@ -31,6 +36,17 @@
       },
       "widgets": {
         "pattern": "*.md"
+      }
+    },
+    "metalsmith-pagination": {
+      "collections.posts": {
+        "perPage": 10,
+        "template": "index.jade",
+        "first": "index.html",
+        "path": "posts/:num/index.html",
+        "pageMetadata": {
+          "title": "Jesse Clark’s Blog"
+        }
       }
     },
     "metalsmith-templates": {
