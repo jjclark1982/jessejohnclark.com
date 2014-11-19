@@ -1,36 +1,54 @@
 @import url(//fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic&subset=latin);
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   margin: 0;
   padding: 0;
 }
-.parallax {
+.container {
   perspective: 1px;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
 }
-.parallax__layer--back {
+.container::before {
+  content: " ";
   transform: translateZ(-1px) scale(2);
-  /*transform-origin: 50% 25%;*/
-  
   background: url(wood.jpg);
   position: fixed;
   width: 100%;
   height: 32768px;
 }
-.parallax__layer--base {
+.container>* {
   transform: translateZ(0);
   max-width: 42em;
   margin: 2em auto;
   /*background: rgba(255,255,255,0.5);*/
-}
-.parallax__section {
+  
   background: url(paper.jpg);
+  border-radius: 3px;
   box-shadow: 0px 0.5em 1.5em 0px rgba(0, 0, 0, 0.66);
+}
+header,
+section,
+nav {
   margin: 2em;
   padding: 2em 2em 1em 2em;
   /*transform-style: preserve-3d;*/
+}
+nav.glass {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  color: white;
+  background: rgba(0, 0, 0, 0.75);
+  /*border: 2px solid white;*/
+  
+  border-radius: 1em;
+  padding: 0 1em;
+  max-width: 20em;
 }
 .parallax__layer--deep {
   transform: translateZ(-2px) scale(3);
@@ -43,48 +61,39 @@ body {
   height: 100vh;
   /*transform-style: preserve-3d;*/
 }
-/*html, body {
-        padding:1em;
-        margin:auto;
-        max-width:42em;
-        background:#fefefe;
-  }
-*/
-
 body {
   font: 1.3em "Vollkorn", Palatino, Times;
   color: #333;
   line-height: 1.4;
-  /*text-align: justify;*/
 }
-header,
-nav,
-article,
-footer {
+/*
+header, nav, article, footer {
   width: 700px;
-  margin: 0 auto;
-}
+  margin:0 auto;
+  }
 article {
   margin-top: 4em;
   margin-bottom: 4em;
   min-height: 400px;
-}
+  }
 footer {
-  margin-bottom: 50px;
-}
+  margin-bottom:50px;
+  }
 video {
   margin: 2em 0;
-  border: 1px solid #ddd;
-}
+  border:1px solid #ddd;
+  }
+
 nav {
   font-size: .9em;
   font-style: italic;
   border-bottom: 1px solid #ddd;
   padding: 1em 0;
-}
+  }
 nav p {
   margin: 0;
-}
+  }
+
 /* Typography
 -------------------------------------------------------- */
 
