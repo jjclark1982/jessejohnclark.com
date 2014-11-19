@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title= title + " | " + site.title
+    link(rel='stylesheet', href='/style.css')
+  body
+    h1= title
+    p!= contents
+    ul
+        each item in collections[collectionName]
+            li
+                a(href="/"+item.path)= item.title
+                p!= item.less
+
+    each sidebar in collections.widgets
+        div!= sidebar.contents

@@ -1,0 +1,45 @@
+{
+  "source": "./contents",
+  "metadata": {
+    "title": "Jesse Clark's Home Page",
+    "description": "Journals of the Expedition.",
+    "site": {
+      "title": "Jesse Clark's Blog",
+      "url": "http://jessejohnclark.com",
+      "author": "Jesse Clark"
+    }
+  },
+  "plugins": {
+    "metalsmith-watch": {},
+    "metalsmith-serve": {},
+    "metalsmith-drafts": {},
+    "metalsmith-gravatar": {
+      "Jesse Clark": "jjclark1982@gmail.com"
+    },
+    "metalsmith-more": {
+      "ext": "md",
+      "alwaysAddKey": true
+    },
+    "metalsmith-markdown": {},
+    "metalsmith-permalinks": {
+      "pattern": ":collection/:title"
+    },
+    "metalsmith-collections": {
+      "posts": {
+        "pattern": "*.md",
+        "sortBy": "date",
+        "reverse": true
+      },
+      "widgets": {
+        "pattern": "*.md"
+      }
+    },
+    "metalsmith-templates": {
+      "engine": "jade",
+      "directory": "./templates"
+    },
+    "metalsmith-feed": {
+      "collection": "posts"
+    }
+  }
+}
