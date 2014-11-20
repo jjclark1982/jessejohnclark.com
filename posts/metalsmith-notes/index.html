@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Metalsmith Notes | Jesse Clark’s Blog</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1><a href="/">Jesse Clark’s Blog</a></h1>
+    </header>
+    <article>
+      <header>
+        <h2><a href="/posts/metalsmith-notes">Metalsmith Notes</a></h2>
+        <div class="author"><span class="author-name">Jesse Clark</span><img src="http://www.gravatar.com/avatar/6820c529f17a6df670655678e2ebde87">
+        </div>
+        <time class="published">Tue Nov 18 2014 11:00:00 GMT+1100 (AEDT)</time>
+        <time class="modified">Thu Nov 20 2014 16:40:27 GMT+1100 (AEDT)</time>
+      </header>
+      <section>
+        <p><a href="http://www.metalsmith.io/">Metalsmith</a> is a popular static site generator.</p>
+        <p>The <code>metalsmith</code> command-line interface allows a build process to be defined by a single JSON file. If you want to vary the build process in different
+          situations, you need to write a script that duplicates much of the logic of the CLI. It&#39;s possible to avoid duplication by calling <code>require(&#39;metalsmith/bin/metalsmith&#39;)</code>.
+          This gives us an opportunity to modify the config with conditional or non-serializable data:</p>
+        <pre><code><span class="hljs-keyword">var</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./metalsmith.json'</span>);
+<span class="hljs-keyword">if</span> (process.env.AUTO_RELOAD) {
+    <span class="hljs-comment">// modify the config in memory to include auto-reloading</span>
+    config.plugins[<span class="hljs-string">'metalsmith-watch'</span>] = { livereload: <span class="hljs-number">35729</span> };
+    config.metadata.customHTML = <span class="hljs-string">'&lt;script src="http://localhost:35729/livereload.js?snipver=1"&gt;&lt;/script&gt;'</span>);
+}
+
+<span class="hljs-comment">// run the standard CLI</span>
+<span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith/bin/metalsmith'</span>);</code></pre>
+
+        <p>Which lets us use the same general config for both batch processing and live-reloading, which would otherwise be incompatible.</p>
+        <pre><code><span class="hljs-keyword">node</span> build.js                  <span class="hljs-comment"># terminates after building</span>
+<span class="hljs-constant">A</span>UTO_RELOAD=<span class="hljs-number">1</span> <span class="hljs-keyword">node</span> build.js    <span class="hljs-comment"># keeps running until killed</span></code></pre>
+
+        <!-- more -->
+      </section>
+    </article>
+    <nav>
+      <div class="widget">
+        <ul>
+          <li><a href="jobs/">R&eacute;sum&eacute;</a>
+          </li>
+          <li><a href="/posts">Blog</a> (<a href="/rss.xml">RSS Feed</a>)</li>
+          <li><a href="http://www.linkedin.com/profile/view?id=5026500">LinkedIn</a>
+          </li>
+          <li><a href="http://github.com/jjclark1982">GitHub</a>
+          </li>
+          <li><a href="https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&amp;field0-0-0=attachments.submitter&amp;type0-0-0=equals&amp;value0-0-0=jjclark1982%40gmail.com">Bugzilla</a>
+          </li>
+          <li><a href="http://stackoverflow.com/users/503963/phssthpok">Stack Overflow</a>
+          </li>
+          <li><a href="http://myhf.newsblur.com/">NewsBlur</a>
+          </li>
+          <li><a href="https://foursquare.com/myhf">Foursquare</a>
+          </li>
+          <li><a href="http://www.facebook.com/jesse.j.clark">Facebook</a>
+          </li>
+          <li><a href="http://www.google.com/profiles/jjclark1982">Google Plus</a>
+          </li>
+          <li><a href="http://old.thesixtyone.com/#/Phssthpok/">thesixtyone</a>
+          </li>
+          <li><a href="http://open.spotify.com/user/jjclark1982">Spotify</a>
+          </li>
+          <li><a href="https://twitter.com/spelunkyadvice">Bad Spelunky Advice</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</body>
+
+</html>
