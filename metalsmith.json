@@ -21,6 +21,7 @@
     "metalsmith-gravatar": {
       "Jesse Clark": "jjclark1982@gmail.com"
     },
+    "metalsmith-metallic": {},
     "metalsmith-markdown": {},
     "metalsmith-more": {
       "ext": "html",
@@ -57,6 +58,10 @@
     "metalsmith-feed": {
       "collection": "posts"
     },
+    "metalsmith-concat": {
+      "files": "assets/*.css",
+      "output": "assets/style.css"
+      },
     "metalsmith-beautify": {
       "indent_size": 2,
       "indent_char": " "

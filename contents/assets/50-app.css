@@ -24,7 +24,7 @@ html, body {
 }
 .container>* {
   transform: translateZ(0);
-  max-width: 42em;
+  max-width: 50em;
   margin: 2em auto;
   /*background: rgba(255,255,255,0.5);*/
   background: url(paper.jpg);
@@ -128,9 +128,13 @@ blockquote {
   }
 code {
   font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
-  font-size: .9em;
-  background: white;
+  font-size: .85em;
+  background: #ddd;
   }
+pre {
+  background: #ddd;
+  font-size: .75em;
+}
 a {
   color: #2484c1;
   text-decoration: none;

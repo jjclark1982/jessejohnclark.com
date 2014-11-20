@@ -2,7 +2,6 @@ doctype html
 html
   head
     title= title + " | " + site.title
-    link(rel='stylesheet', href='/assets/normalize.css')
     link(rel='stylesheet', href='/assets/style.css')
     if (customScript)
         script!= customScript
@@ -20,7 +19,8 @@ html
                     span.author-name= author
                     img(src=gravatar[author])
                 time.published= date
-                time.modified= stats.mtime
+                if (stats)
+                    time.modified= stats.mtime
 
             section!= contents
 

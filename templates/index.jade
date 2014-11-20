@@ -7,7 +7,6 @@ else
 html
   head
     title= pageTitle
-    link(rel='stylesheet', href='/assets/normalize.css')
     link(rel='stylesheet', href='/assets/style.css')
     if (customScript)
         script!= customScript
@@ -26,7 +25,7 @@ html
                         div!= file.less
 
             if (pagination.pages.length > 1)
-                uldiv
+                div
                     if pagination.previous
                         a(href="/"+pagination.previous.path) « Previous Page |
                     span!= "&nbsp;"
