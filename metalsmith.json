@@ -44,7 +44,7 @@
       "collections.posts": {
         "perPage": 10,
         "template": "index.jade",
-        "first": "index.html",
+        "first": "posts/index.html",
         "path": "posts/:num/index.html",
         "pageMetadata": {
           "title": "Jesse Clark’s Blog"

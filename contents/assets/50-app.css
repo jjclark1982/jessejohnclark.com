@@ -24,7 +24,7 @@ html, body {
 }
 .container>* {
   transform: translateZ(0);
-  max-width: 50em;
+  max-width: 42em;
   margin: 2em auto;
   /*background: rgba(255,255,255,0.5);*/
   background: url(paper.jpg);

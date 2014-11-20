@@ -4,6 +4,7 @@ permalink: false
 ---
 
 - [R&eacute;sum&eacute;](jobs/)
+- [Blog](/posts) ([RSS Feed](/rss.xml))
 - [LinkedIn](http://www.linkedin.com/profile/view?id=5026500)
 - [GitHub](http://github.com/jjclark1982)
 - [Bugzilla](https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&field0-0-0=attachments.submitter&type0-0-0=equals&value0-0-0=jjclark1982%40gmail.com)
@@ -15,5 +16,3 @@ permalink: false
 - [thesixtyone](http://old.thesixtyone.com/#/Phssthpok/)
 - [Spotify](http://open.spotify.com/user/jjclark1982)
 - [Bad Spelunky Advice](https://twitter.com/spelunkyadvice)
-
-<!-- - [RSS Feed](/rss.xml) -->

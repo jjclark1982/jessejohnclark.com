@@ -20,7 +20,8 @@ html
         section
             each file in pagination.files
                 article
-                    a(href="/"+file.path)= file.title
+                    h3
+                        a(href="/"+file.path)= file.title
                     - if (file.less)
                         div!= file.less
 
