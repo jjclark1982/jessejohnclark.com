@@ -15,11 +15,11 @@ rm -rf build
 git clone . build
 (cd build; git checkout $PUBLISH_BRANCH; rm -r *)
 
-# TODO: make this a metalsmith plugin
-(cd contents/jobs; wkhtmltopdf --print-media-type --page-size letter index.html jjclark-resume.pdf)
-
 # build using the hardcoded config: no cleaning or watching
 metalsmith
+
+# TODO: make this a metalsmith plugin
+(cd build/jobs; wkhtmltopdf --print-media-type --page-size letter index.html jjclark-resume.pdf)
 
 cd build
 git add --all .

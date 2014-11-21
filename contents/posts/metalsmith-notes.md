@@ -28,5 +28,3 @@ Which lets us use the same general config for both batch processing and live-rel
 node build.js                  # terminates after building
 AUTO_RELOAD=1 node build.js    # keeps running until killed
 ```
-
-<!-- more -->

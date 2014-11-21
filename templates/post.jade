@@ -17,10 +17,10 @@ html
                     a(href="/"+path)= title
                 .author
                     span.author-name= author
-                    img(src=gravatar[author])
-                time.published= date
+                    //- img(src=gravatar[author])
+                time.published(datetime=date)= formatDate(date, "LL")
                 if (stats)
-                    time.modified= stats.mtime
+                    time.modified(datetime=stats.mtime)= formatDate(stats.mtime, "LLL")
 
             section!= contents
 

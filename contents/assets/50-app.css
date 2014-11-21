@@ -27,9 +27,28 @@ html, body {
   max-width: 42em;
   margin: 2em auto;
   /*background: rgba(255,255,255,0.5);*/
-  background: url(paper.jpg);
+  background: #ddd url(paper.jpg);
   border-radius: 3px;
   box-shadow: 0px 0.5em 1.5em 0px rgba(0,0,0,0.66);
+}
+time.published::before {
+  content: "Published ";
+  display: inline;
+}
+time.modified::before {
+  content: "Last edited ";
+  display: inline;
+}
+.author-name {
+  font-style: italic;
+}
+.author-name::before {
+  content: "by ";
+  display: inline;
+}
+article > header > time {
+  display: block;
+  font-size: 70%;
 }
 header, section, nav {
   margin: 2em;
