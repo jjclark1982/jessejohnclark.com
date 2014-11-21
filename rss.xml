@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jesse Clark’s Blog]]></title><description><![CDATA[Journals of the Expedition.]]></description><link>http://jessejohnclark.com</link><generator>metalsmith-feed</generator><lastBuildDate>Thu, 20 Nov 2014 05:47:44 GMT</lastBuildDate><atom:link href="http://jessejohnclark.com/rss.xml" rel="self" type="application/rss+xml"/><author><![CDATA[Jesse Clark]]></author><item><title><![CDATA[Metalsmith Notes]]></title><description><![CDATA[<p><a href="http://www.metalsmith.io/">Metalsmith</a> is a popular static site generator.</p>
-<p>The <code>metalsmith</code> command-line interface allows a build process to be defined by a single JSON file. If you want to vary the build process in different situations, you need to write a script that duplicates much of the logic of the CLI. It&#39;s possible to avoid duplication by calling <code>require(&#39;metalsmith/bin/metalsmith&#39;)</code>. This gives us an opportunity to modify the config with conditional or non-serializable data:</p>
-<pre><code><span class="hljs-keyword">var</span> config = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./metalsmith.json'</span>);
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jesse Clark’s Blog]]></title><description><![CDATA[Journals of the Expedition.]]></description><link>http://jessejohnclark.com</link><generator>metalsmith-feed</generator><lastBuildDate>Fri, 21 Nov 2014 11:19:35 GMT</lastBuildDate><atom:link href="http://jessejohnclark.com/rss.xml" rel="self" type="application/rss+xml"/><author><![CDATA[Jesse Clark]]></author><item><title><![CDATA[Conditional Live-Reload with Metalsmith]]></title><description><![CDATA[<p><a href="http://www.metalsmith.io/">Metalsmith</a> is a popular static site generator.</p>
+<p>The <code>metalsmith</code> command-line interface allows a build process to be defined by a single JSON file. If you want to vary the build process in different situations, you need to write a script that duplicates much of the logic of the CLI. It&#39;s possible to avoid duplication by requiring the CLI binary from another script. This gives us an opportunity to modify the config with conditional or non-serializable data:</p>
+<pre><code><span class="hljs-keyword">var</span> config = require(<span class="hljs-string">'./metalsmith.json'</span>);
+<span class="hljs-comment">// provide a formatting function for use in templates</span>
+config.metadata.formatDate = function(date, format) {
+    <span class="hljs-function"><span class="hljs-keyword">return</span> <span class="hljs-title">require</span><span class="hljs-params">(<span class="hljs-string">"moment"</span>)</span><span class="hljs-params">(date)</span>.<span class="hljs-title">format</span><span class="hljs-params">(format || <span class="hljs-string">"MMMM Do, YYYY"</span>)</span></span>;
+}
+<span class="hljs-comment">// only enable live-reloading when requested</span>
 <span class="hljs-keyword">if</span> (process.env.AUTO_RELOAD) {
-    <span class="hljs-comment">// modify the config in memory to include auto-reloading</span>
     config.plugins[<span class="hljs-string">'metalsmith-watch'</span>] = { livereload: <span class="hljs-number">35729</span> };
     config.metadata.customHTML = <span class="hljs-string">'&lt;script src="http://localhost:35729/livereload.js?snipver=1"&gt;&lt;/script&gt;'</span>);
 }
 
 <span class="hljs-comment">// run the standard CLI</span>
-<span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith/bin/metalsmith'</span>);</code></pre>
+require(<span class="hljs-string">'metalsmith/bin/metalsmith'</span>);</code></pre>
 
-<p>Which lets us use the same general config for both batch processing and live-reloading, which would otherwise be incompatible.</p>
+<p>This lets us use the same general config for both batch processing and live-reloading, which would otherwise be incompatible.</p>
 <pre><code><span class="hljs-keyword">node</span> build.js                  <span class="hljs-comment"># terminates after building</span>
-<span class="hljs-constant">A</span>UTO_RELOAD=<span class="hljs-number">1</span> <span class="hljs-keyword">node</span> build.js    <span class="hljs-comment"># keeps running until killed</span></code></pre>]]></description><link>http://jessejohnclark.com/posts/metalsmith-notes</link><guid isPermaLink="true">http://jessejohnclark.com/posts/metalsmith-notes</guid><dc:creator><![CDATA[Jesse Clark]]></dc:creator><pubDate>Tue, 18 Nov 2014 00:00:00 GMT</pubDate></item></channel></rss>
+<span class="hljs-constant">A</span>UTO_RELOAD=<span class="hljs-number">1</span> <span class="hljs-keyword">node</span> build.js    <span class="hljs-comment"># keeps running until killed</span></code></pre>]]></description><link>http://jessejohnclark.com/posts/conditional-live-reload-with-metalsmith</link><guid isPermaLink="true">http://jessejohnclark.com/posts/conditional-live-reload-with-metalsmith</guid><dc:creator><![CDATA[Jesse Clark]]></dc:creator><pubDate>Tue, 18 Nov 2014 00:00:00 GMT</pubDate></item></channel></rss>

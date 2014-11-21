@@ -2,18 +2,42 @@
 <html>
 
 <head>
-  <title>Jesse Clark’s Home Page</title>
-  <meta name="description">
+  <title>Jesse Clark’s Blog</title>
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 
 <body>
   <div class="container">
     <header>
-      <h1>Jesse Clark’s Home Page</h1>
+      <h1><a href="/">Jesse Clark’s Blog</a></h1>
       <p></p>
     </header>
-    <article></article>
+    <article>
+      <h2><a href="/posts/conditional-live-reload-with-metalsmith">Conditional Live-Reload with Metalsmith</a></h2>
+      <p><a href="http://www.metalsmith.io/">Metalsmith</a> is a popular static site generator.</p>
+      <p>The <code>metalsmith</code> command-line interface allows a build process to be defined by a single JSON file. If you want to vary the build process in different
+        situations, you need to write a script that duplicates much of the logic of the CLI. It&#39;s possible to avoid duplication by requiring the CLI binary from
+        another script. This gives us an opportunity to modify the config with conditional or non-serializable data:</p>
+      <pre><code><span class="hljs-keyword">var</span> config = require(<span class="hljs-string">'./metalsmith.json'</span>);
+<span class="hljs-comment">// provide a formatting function for use in templates</span>
+config.metadata.formatDate = function(date, format) {
+    <span class="hljs-function"><span class="hljs-keyword">return</span> <span class="hljs-title">require</span><span class="hljs-params">(<span class="hljs-string">"moment"</span>)</span><span class="hljs-params">(date)</span>.<span class="hljs-title">format</span><span class="hljs-params">(format || <span class="hljs-string">"MMMM Do, YYYY"</span>)</span></span>;
+}
+<span class="hljs-comment">// only enable live-reloading when requested</span>
+<span class="hljs-keyword">if</span> (process.env.AUTO_RELOAD) {
+    config.plugins[<span class="hljs-string">'metalsmith-watch'</span>] = { livereload: <span class="hljs-number">35729</span> };
+    config.metadata.customHTML = <span class="hljs-string">'&lt;script src="http://localhost:35729/livereload.js?snipver=1"&gt;&lt;/script&gt;'</span>);
+}
+
+<span class="hljs-comment">// run the standard CLI</span>
+require(<span class="hljs-string">'metalsmith/bin/metalsmith'</span>);</code></pre>
+
+      <p>This lets us use the same general config for both batch processing and live-reloading, which would otherwise be incompatible.</p>
+      <pre><code><span class="hljs-keyword">node</span> build.js                  <span class="hljs-comment"># terminates after building</span>
+<span class="hljs-constant">A</span>UTO_RELOAD=<span class="hljs-number">1</span> <span class="hljs-keyword">node</span> build.js    <span class="hljs-comment"># keeps running until killed</span></code></pre>
+      <a
+      href="/posts/conditional-live-reload-with-metalsmith">Read on →</a>
+    </article>
     <nav>
       <div class="widget">
         <ul>
