@@ -18,9 +18,6 @@ git clone . build
 # build using the hardcoded config: no cleaning or watching
 metalsmith
 
-# TODO: make this a metalsmith plugin
-(cd build/jobs; wkhtmltopdf --print-media-type --page-size letter index.html jjclark-resume.pdf)
-
 cd build
 git add --all .
 git update-ref refs/heads/$PUBLISH_BRANCH $(

@@ -66,6 +66,11 @@
     "metalsmith-beautify": {
       "indent_size": 2,
       "indent_char": " "
+    },
+    "metalsmith-pdf": {
+      "pattern": "jobs/jjclark-resume.html",
+      "printMediaType": true,
+      "pageSize": "letter"
     }
   }
 }
