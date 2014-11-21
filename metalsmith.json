@@ -63,6 +63,7 @@
       "files": "assets/*.css",
       "output": "assets/style.css"
       },
+    "metalsmith-autoprefixer": {},
     "metalsmith-beautify": {
       "indent_size": 2,
       "indent_char": " "
