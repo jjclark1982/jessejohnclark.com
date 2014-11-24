@@ -1,5 +1,5 @@
 ---
-title: Conditional Live-Reload with Metalsmith
+title: Conditional Live-Reload with Metalsmith CLI
 date: 2014-11-18
 template: post.jade
 collection: posts

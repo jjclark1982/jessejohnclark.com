@@ -7,6 +7,10 @@ author: Jesse Clark
 publish: draft
 ---
 
+<aside>
+    aside: what's the deal with airline peanuts?
+</aside>
+
 Test post, please ignore
 
 <!-- more -->

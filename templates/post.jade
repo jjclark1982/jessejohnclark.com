@@ -15,14 +15,16 @@ html
             header
                 h2
                     a(href="/"+path)= title
-                .author
+                .author| by 
                     span.author-name= author
                     //- img(src=gravatar[author])
-                time.published(datetime=date)= formatDate(date, "LL")
+                .time| Published 
+                    time.published(datetime=date)= formatDate(date, "LL")
                 if (stats)
-                    time.modified(datetime=stats.mtime)= formatDate(stats.mtime, "LLL")
+                    .time| Last edited 
+                        time.modified(datetime=stats.mtime)= formatDate(stats.mtime, "LLL")
 
-            section!= contents
+            != contents
 
         nav
             each widget in collections.widgets

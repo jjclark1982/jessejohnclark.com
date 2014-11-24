@@ -15,14 +15,17 @@ html
         header
             h1
                 a(href="/")= site.title
-            p!= contents
+            != contents
 
         if pagination
             //- a series of abbreviated posts
             each file in pagination.files
                 article
-                    h2
-                        a(href="/"+file.path)= file.title
+                    header
+                        h2
+                            a(href="/"+file.path)= file.title
+                        .time| Published 
+                            time.published(datetime=file.date)= formatDate(file.date, "LL")
                     - if (file.less)
                         != file.less
 
