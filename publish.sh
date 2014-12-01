@@ -16,7 +16,7 @@ git clone . build
 (cd build; git checkout $PUBLISH_BRANCH; rm -r *)
 
 # build using the hardcoded config: no cleaning or watching
-metalsmith
+gulp build
 
 cd build
 git add --all .
