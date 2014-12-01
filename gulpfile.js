@@ -13,7 +13,7 @@ gulp.task("build", function(){
     require('metalsmith/bin/metalsmith');
 });
 
-gulp.task("watch", function(done){
+gulp.task("watch", function(){
     // modify the config in memory to include cleaning and auto-reloading
     var config = require('./metalsmith.json');
     config.clean = true;
