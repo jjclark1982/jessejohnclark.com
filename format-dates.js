@@ -6,6 +6,11 @@ module.exports = function(options) {
         metalsmith.metadata().formatDate = function(date, format) {
             return moment(date).format(format || "LL");
         }
+        for (var file in files) {
+            if (files[file].date) {
+                files[file].date = new Date(files[file].date);
+            }
+        }
         done();
     }
 }
