@@ -10,7 +10,7 @@ author: Jesse Clark
 
 It can be useful to invoke external scripts from `cake`, if they are written in another language or simply don't fit in the `Cakefile`. Suppose we have a `scripts` directory populated with various text-based executables, and we want to automatically define a `cake` task for each of those scripts, with an appropriate description, like so:
 
-```
+```shell
 $ ls scripts
 build.py
 clean.sh
@@ -25,7 +25,7 @@ build.py: usage info...
 
 We can do this in the `Cakefile` by reading each script and extracting its  first comment, then defining a task with that comment as its description:
 
-```CoffeeScript
+```coffeescript
 # Define tasks for any scripts in the `scripts` directory
 for basename in fs.readdirSync('./scripts') then do (basename)->
     return if basename[0] is '.'
