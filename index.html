@@ -1,4 +1,47 @@
-<!DOCTYPE html><html><head><title>Jesse Clark’s Blog</title><link rel="stylesheet" href="/assets/style.css"></head><body><div class="container"><header><h1><a href="/">Jesse Clark’s Blog</a></h1></header><article><header><h2><a href="/posts/conditional-live-reload-with-metalsmith-cli">Conditional Live-Reload with Metalsmith CLI</a></h2><div class="time">Published <time datetime="Mon Nov 17 2014 16:00:00 GMT-0800 (PST)" class="published">November 17, 2014</time></div></header><p><a href="http://www.metalsmith.io/">Metalsmith</a> is a popular static site generator.</p>
+<!DOCTYPE html><html><head><title>Jesse Clark’s Blog</title><link rel="stylesheet" href="/assets/style.css"></head><body><div class="container"><header><h1><a href="/">Jesse Clark’s Blog</a></h1></header><article><header><h2><a href="/posts/dynamically-generated-cakefile-tasks">Dynamically-generated Cakefile Tasks</a></h2><div class="time">Published <time datetime="Mon Jan 19 2015 11:00:00 GMT+1100 (AEDT)" class="published">January 19, 2015</time></div></header><p><a href="http://coffeescript.org/documentation/docs/cake.html">Cake</a> is a task-runner for <a href="http://coffeescript.org/">CoffeeScript</a>.</p>
+<p>It can be useful to invoke external scripts from <code>cake</code>, if they are written in another language or simply don&#39;t fit in the <code>Cakefile</code>. Suppose we have a <code>scripts</code> directory populated with various text-based executables, and we want to automatically define a <code>cake</code> task for each of those scripts, with an appropriate description, like so:</p>
+<pre><code><span class="hljs-variable">$ </span>ls scripts
+build.py
+clean.sh
+
+<span class="hljs-variable">$ </span>cake
+cake build                    <span class="hljs-comment"># build the project</span>
+cake clean                    <span class="hljs-comment"># remove built files</span>
+
+<span class="hljs-variable">$ </span>cake build --help
+build.<span class="hljs-symbol">py:</span> usage info...</code></pre>
+
+<p>We can do this in the <code>Cakefile</code> by reading each script and extracting its  first comment, then defining a task with that comment as its description:</p>
+<pre><code class="hljs coffeescript"><span class="hljs-comment"># Define tasks for any scripts in the `scripts` directory</span>
+<span class="hljs-keyword">for</span> basename <span class="hljs-keyword">in</span> fs.readdirSync(<span class="hljs-string">'./scripts'</span>) <span class="hljs-keyword">then</span> <span class="hljs-keyword">do</span> (basename)-&gt;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">if</span> basename[<span class="hljs-number">0</span>] <span class="hljs-keyword">is</span> <span class="hljs-string">'.'</span>
+    filename = <span class="hljs-string">"./scripts/<span class="hljs-subst">#{basename}</span>"</span>
+    contents = fs.readFileSync(filename, <span class="hljs-string">'utf8'</span>)
+    title = basename.replace(<span class="hljs-regexp">/\..*?$/</span>, <span class="hljs-string">''</span>)
+    <span class="hljs-comment"># use the first block comment in the file as its description</span>
+    description = <span class="hljs-string">''</span>
+    <span class="hljs-keyword">for</span> line, i <span class="hljs-keyword">in</span> contents.split(<span class="hljs-regexp">/[\r\n]+/</span>)
+        <span class="hljs-keyword">if</span> line.match(<span class="hljs-regexp">/^#!/</span>) <span class="hljs-keyword">then</span> <span class="hljs-keyword">continue</span>
+        <span class="hljs-keyword">if</span> line.match(<span class="hljs-regexp">/-\*- mode/</span>) <span class="hljs-keyword">then</span> <span class="hljs-keyword">continue</span>
+        <span class="hljs-keyword">if</span> line.match(<span class="hljs-regexp">/^\s*(#|\/\/|$)/</span>)
+            description += line.replace(<span class="hljs-regexp">/^\s*(#|\/\/)\s*/</span>, <span class="hljs-string">' '</span>).trim()
+            <span class="hljs-keyword">continue</span>
+        <span class="hljs-comment"># stop reading when we encounter non-comment text</span>
+        <span class="hljs-keyword">break</span>
+
+    task(title, description, <span class="hljs-function">-&gt;</span>
+        <span class="hljs-comment"># pass command-line arguments directly in to the script</span>
+        index = process.argv.indexOf(title)
+        args = process.argv.slice(index+<span class="hljs-number">1</span>)
+        child_process.spawn(filename, args, {
+            <span class="hljs-attribute">stdio</span>: <span class="hljs-string">'inherit'</span>
+            <span class="hljs-attribute">env</span>: env
+        }).<span class="hljs-literal">on</span>(<span class="hljs-string">'exit'</span>, <span class="hljs-function"><span class="hljs-params">(code, signal)</span>-&gt;</span>
+            process.exit(code)
+        )
+        <span class="hljs-comment"># prevent `cake` from invoking further tasks based on those arguments</span>
+        <span class="hljs-built_in">global</span>.invoke = (<span class="hljs-function">-&gt;</span>)
+    )</code></pre><a href="/posts/dynamically-generated-cakefile-tasks">Read on →</a></article><article><header><h2><a href="/posts/conditional-live-reload-with-metalsmith-cli">Conditional Live-Reload with Metalsmith CLI</a></h2><div class="time">Published <time datetime="Tue Nov 18 2014 11:00:00 GMT+1100 (AEDT)" class="published">November 18, 2014</time></div></header><p><a href="http://www.metalsmith.io/">Metalsmith</a> is a popular static site generator.</p>
 <p>The <code>metalsmith</code> command-line interface allows a build process to be defined by a single JSON file. If you want to vary the build process in different situations, you need to write a script that duplicates much of the logic of the CLI. It&#39;s possible to avoid duplication by requiring the CLI binary from another script. This gives us an opportunity to modify the config with conditional or non-serializable data:</p>
 <pre><code><span class="hljs-keyword">var</span> config = require(<span class="hljs-string">'./metalsmith.json'</span>);
 <span class="hljs-comment">// provide a formatting function for use in templates</span>
@@ -16,26 +59,24 @@ require(<span class="hljs-string">'metalsmith/bin/metalsmith'</span>);</code></p
 
 <p>This lets us use the same general config for both batch processing and live-reloading, which would otherwise be incompatible.</p>
 <pre><code><span class="hljs-keyword">node</span> build.js                  <span class="hljs-comment"># terminates after building</span>
-<span class="hljs-constant">A</span>UTO_RELOAD=<span class="hljs-number">1</span> <span class="hljs-keyword">node</span> build.js    <span class="hljs-comment"># keeps running until killed</span></code></pre><a href="/posts/conditional-live-reload-with-metalsmith-cli">Read on →</a></article><article><header><h2><a href="/posts/bad-joke-eel">Bad Joke Eel</a></h2><div class="time">Published <time datetime="Fri May 11 2012 19:36:00 GMT-0700 (PDT)" class="published">May 11, 2012</time></div></header><p><img src='/awkward-zippers/40992127-ys9CA.jpeg'></p>
-<a href="/posts/bad-joke-eel">Read on →</a></article><article><header><h2><a href="/posts/lady-gaga-wearing-nothing-but-zippers">Lady Gaga wearing nothing but zippers</a></h2><div class="time">Published <time datetime="Thu Apr 21 2011 00:44:00 GMT-0700 (PDT)" class="published">April 21, 2011</time></div></header><p><img src='/awkward-zippers/24993178-blog190211_gaga.jpg'></p>
-<a href="/posts/lady-gaga-wearing-nothing-but-zippers">Read on →</a></article><article><header><h2><a href="/posts/my-phone-location-history">My phone location history</a></h2><div class="time">Published <time datetime="Wed Apr 20 2011 14:13:00 GMT-0700 (PDT)" class="published">April 20, 2011</time></div></header><p><img src='/posterous-import/2011/04/24973318-Screen shot 2011-04-20 at 2.11.37 PM.png'></p>
+<span class="hljs-constant">A</span>UTO_RELOAD=<span class="hljs-number">1</span> <span class="hljs-keyword">node</span> build.js    <span class="hljs-comment"># keeps running until killed</span></code></pre><a href="/posts/conditional-live-reload-with-metalsmith-cli">Read on →</a></article><article><header><h2><a href="/posts/bad-joke-eel">Bad Joke Eel</a></h2><div class="time">Published <time datetime="Fri May 11 2012 19:36:00 GMT+1000 (AEST)" class="published">May 11, 2012</time></div></header><p><img src='/awkward-zippers/40992127-ys9CA.jpeg'></p>
+<a href="/posts/bad-joke-eel">Read on →</a></article><article><header><h2><a href="/posts/my-phone-location-history">My phone location history</a></h2><div class="time">Published <time datetime="Thu Apr 21 2011 07:13:00 GMT+1000 (AEST)" class="published">April 21, 2011</time></div></header><p><img src='/posterous-import/2011/04/24973318-Screen shot 2011-04-20 at 2.11.37 PM.png'></p>
 <p>Extracted with <a href="http://petewarden.github.com/iPhoneTracker/">http://petewarden.github.com/iPhoneTracker/</a></p>
-<a href="/posts/my-phone-location-history">Read on →</a></article><article><header><h2><a href="/posts/homemade-record-player">Homemade record player</a></h2><div class="time">Published <time datetime="Tue Mar 22 2011 11:20:00 GMT-0700 (PDT)" class="published">March 22, 2011</time></div></header><p><strong>p67.mov</strong>
+<a href="/posts/my-phone-location-history">Read on →</a></article><article><header><h2><a href="/posts/lady-gaga-wearing-nothing-but-zippers">Lady Gaga wearing nothing but zippers</a></h2><div class="time">Published <time datetime="Thu Apr 21 2011 00:44:00 GMT+1000 (AEST)" class="published">April 21, 2011</time></div></header><p><img src='/awkward-zippers/24993178-blog190211_gaga.jpg'></p>
+<a href="/posts/lady-gaga-wearing-nothing-but-zippers">Read on →</a></article><article><header><h2><a href="/posts/homemade-record-player">Homemade record player</a></h2><div class="time">Published <time datetime="Wed Mar 23 2011 05:20:00 GMT+1100 (AEDT)" class="published">March 23, 2011</time></div></header><p><strong>p67.mov</strong>
 <a href="/posterous-import/2011/03/361408-p67.mov">Watch this video</a></p>
 <p>We rolled a sheet of paper into a cone, attached a sewing needle to the tip with candle wax, and held it up to a record spinning on a bicycle wheel.</p>
-<a href="/posts/homemade-record-player">Read on →</a></article><article><header><h2><a href="/posts/candy-cigarettes">Candy cigarettes</a></h2><div class="time">Published <time datetime="Mon Mar 14 2011 21:54:00 GMT-0700 (PDT)" class="published">March 14, 2011</time></div></header><p><img src='/posterous-import/2011/03/23009363-p60.jpg'></p>
+<a href="/posts/homemade-record-player">Read on →</a></article><article><header><h2><a href="/posts/candy-cigarettes">Candy cigarettes</a></h2><div class="time">Published <time datetime="Tue Mar 15 2011 15:54:00 GMT+1100 (AEDT)" class="published">March 15, 2011</time></div></header><p><img src='/posterous-import/2011/03/23009363-p60.jpg'></p>
 <p><img src='/posterous-import/2011/03/23009364-p62.jpg'></p>
-<a href="/posts/candy-cigarettes">Read on →</a></article><article><header><h2><a href="/posts/eye-pad-two">Eye Pad Two</a></h2><div class="time">Published <time datetime="Fri Mar 11 2011 15:48:00 GMT-0800 (PST)" class="published">March 11, 2011</time></div></header><p><img src='/posterous-import/2011/03/22854214-p43.jpg'></p>
-<a href="/posts/eye-pad-two">Read on →</a></article><article><header><h2><a href="/posts/i-fell-off-the-wagon">I fell off the wagon</a></h2><div class="time">Published <time datetime="Fri Mar 04 2011 00:52:00 GMT-0800 (PST)" class="published">March 4, 2011</time></div></header><p><img src='/posterous-import/2011/03/22467201-p37.jpg'></p>
-<a href="/posts/i-fell-off-the-wagon">Read on →</a></article><article><header><h2><a href="/posts/whose-keychain-is-this">Whose keychain is this?</a></h2><div class="time">Published <time datetime="Wed Feb 16 2011 01:09:00 GMT-0800 (PST)" class="published">February 16, 2011</time></div></header><p><div class='post_body'>I found this under my couch. It has probably been there for years.<p><div class='p_embed p_image_embed'>
+<a href="/posts/candy-cigarettes">Read on →</a></article><article><header><h2><a href="/posts/eye-pad-two">Eye Pad Two</a></h2><div class="time">Published <time datetime="Sat Mar 12 2011 10:48:00 GMT+1100 (AEDT)" class="published">March 12, 2011</time></div></header><p><img src='/posterous-import/2011/03/22854214-p43.jpg'></p>
+<a href="/posts/eye-pad-two">Read on →</a></article><article><header><h2><a href="/posts/i-fell-off-the-wagon">I fell off the wagon</a></h2><div class="time">Published <time datetime="Fri Mar 04 2011 19:52:00 GMT+1100 (AEDT)" class="published">March 4, 2011</time></div></header><p><img src='/posterous-import/2011/03/22467201-p37.jpg'></p>
+<a href="/posts/i-fell-off-the-wagon">Read on →</a></article><article><header><h2><a href="/posts/whose-keychain-is-this">Whose keychain is this?</a></h2><div class="time">Published <time datetime="Wed Feb 16 2011 20:09:00 GMT+1100 (AEDT)" class="published">February 16, 2011</time></div></header><p><div class='post_body'>I found this under my couch. It has probably been there for years.<p><div class='p_embed p_image_embed'>
 <img src='/posterous-import/2011/02/21643900-photo.JPG'></p>
-<a href="/posts/whose-keychain-is-this">Read on →</a></article><article><header><h2><a href="/posts/groovy-fruits">Groovy Fruits</a></h2><div class="time">Published <time datetime="Mon Feb 07 2011 23:28:00 GMT-0800 (PST)" class="published">February 7, 2011</time></div></header><p>Groovy Fruits is now available on the App Store. Enjoy!&nbsp;<span style="font-family: Lucida Grande, sans-serif; color: #444444; line-height: 20px;"><a href="http://www.groovyfruits.com/">http://www.groovyfruits.com/</a></span></span></p></div></p>
-<a href="/posts/groovy-fruits">Read on →</a></article><div><span>&nbsp;</span><b><a href="/index.html">Page 1</a></b><span>&nbsp;</span><a href="/posts/2/index.html">| Next Page »</a></div><nav><div class="widget"><ul>
+<a href="/posts/whose-keychain-is-this">Read on →</a></article><div><span>&nbsp;</span><b><a href="/index.html">Page 1</a></b><span>&nbsp;</span><a href="/posts/2/index.html">| Next Page »</a></div><nav><div class="widget"><ul>
 <li><a href="jobs/">R&eacute;sum&eacute;</a></li>
 <li><a href="/posts">Blog</a> (<a href="/rss.xml">RSS Feed</a>)</li>
 <li><a href="http://www.linkedin.com/profile/view?id=5026500">LinkedIn</a></li>
 <li><a href="http://github.com/jjclark1982">GitHub</a></li>
-<li><a href="https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&amp;field0-0-0=attachments.submitter&amp;type0-0-0=equals&amp;value0-0-0=jjclark1982%40gmail.com">Bugzilla</a></li>
 <li><a href="http://stackoverflow.com/users/503963/phssthpok">Stack Overflow</a></li>
 <li><a href="http://myhf.newsblur.com/">NewsBlur</a></li>
 <li><a href="https://foursquare.com/myhf">Foursquare</a></li>
