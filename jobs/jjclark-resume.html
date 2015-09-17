@@ -107,17 +107,11 @@
         .Academic_Publications [data-key=description] {
             display: block;
         }
-        .Academic_Publications .title {
-            font-style: italic;
-        }
         .Academic_Publications .date:before {
             content: " (";
         }
         .Academic_Publications .date:after {
             content: "): ";
-        }
-        .notes {
-            display: none;
         }
 	</style>
 	<style media="print">
@@ -173,8 +167,7 @@ var data = {
             location: 'Ultimo, New South Wales',
             date: 'November 2014 -- Present',
             position: 'Senior Researcher',
-            description: 'Developed a content management system for data and publications at <a href="http://themagiclab.org/">a research lab</a>. Mentored PhD students in fully-reproducible research methods. Oversaw the release of several open-source software packages, and contributed code to <a href="http://www.ros.org/">ROS</a>. Gave lectures on continuous integration, I.T. for entrepreneurs, and paper prototyping. Organized research hackathons. Traveled to Japan to meet with roboticists.',
-            notes: "more researchy. went to talks, interviewed speakers etc"
+            description: 'Used industry expertise to enhance the productivity of <a href="http://themagiclab.org/">The Innovation and Enterprise Research Lab</a>. Developed a novel content management system for data and publications. Implemented data collection and analysis tools for research papers. Oversaw the release of several open-source software packages, and contributed code to widely-used packages in the open-source community. Mentored PhD students in fully-reproducible research methods. Gave lectures on continuous integration, I.T. for entrepreneurs, and paper prototyping. Interviewed guest speakers. Organized research hackathons. Traveled to Japan to meet with roboticists.'
         },
         {
             organization: '<a href="http://www.code4fun.com.au/">Sydney Programming School</a>',
@@ -297,30 +290,27 @@ var data = {
             organization: '<a href="http://refractivedialer.com/">Refract Media</a>',
             location: 'Los Gatos, California',
             date: '1997 -- 2000',
-            description: 'Configured and maintained Linux servers for a web hosting company.',
-            notes: "pioneering"
+            description: 'Configured and maintained Linux servers for a web hosting company during the dot-com boom.'
         }
     ],
     "Open-Source Software Publications": [
         {
-            description: 'Published a novel isomorphic web application engine, “<a href="https://github.com/jjclark1982/zodiac">Zodiac</a>,” which uses asynchronous Dust.js templates to stream Backbone.js views as they are being rendered, marked up with enough information to reinstantiate the same views on the frontend. Automatically routes models to declared endpoints. Communicates vector clocks for automatic conflict detection and resolution.'
+            description: 'Published a novel isomorphic web application engine, “<a href="https://github.com/jjclark1982/zodiac">Zodiac</a>,” which uses asynchronous Dust.js templates to stream dynamic Backbone.js views as they are being rendered, marked up with enough information to reinstantiate the same views on the frontend. Automatically routes models to declared endpoints. Communicates Riak metadata for automatic conflict detection and resolution.'
         },
         {
-            description: 'Pubished examples of best practices in several web frameworks, for use in instructional materials.'
+            description: 'Pubished examples of best practices in several web frameworks, for use in instructional materials. Published various small packages for format conversion, terminal graphics, SVG manipulation, and finite differences.'
         },
         {
-            description: 'Published various small packages for format conversion, CP437 graphics, and forward finite differences.'
-        },
-        {
-            description: 'Worked with the open-source community to discover areas for improvement in popular software packages, implement those improvements in the appropriate style, and publish the results. Notable contributions:',
+            description: 'Worked with the open-source community to discover areas for improvement in popular software packages, implement those improvements and automated tests to verify them, and publish the results. Notable contributions:<br><br>',
             items: [
-                '<a href="http://www.ros.org/">Robot OS (ROS)</a> --- Preeminent Robot Operating System',
-                '<a href="http://docker.io/">Docker</a> --- Application container engine',
-                '<a href="http://www.metalsmith.io/">Metalsmith</a> --- Static website generator',
-                '<a href="http://handlebarsjs.com/">Handlebars.js</a> --- Declarative template engine',
-                '<a href="http://www.dustjs.com/">Dust.js</a> --- Asynchronous template engine',
-                '<a href="http://rivetsjs.com/">Rivets.js</a> --- Frontend data binding library',
-                '<a href="https://www.bugzilla.org/">Bugzilla</a> --- Widely-used bug tracking system'
+                '<b><a href="http://www.ros.org/">ROS</a></b> --- Preeminent Robot Operating System',
+                '<b><a href="http://docker.io/">Docker</a></b> --- Application container engine',
+                '<b><a href="http://gulpjs.com/">Gulp.js</a></b> --- Streaming build system',
+                '<b><a href="http://www.metalsmith.io/">Metalsmith</a></b> --- Static website generator',
+                '<b><a href="http://handlebarsjs.com/">Handlebars.js</a></b> --- Declarative template engine',
+                '<b><a href="http://www.dustjs.com/">Dust.js</a></b> --- Asynchronous template engine',
+                '<b><a href="http://rivetsjs.com/">Rivets.js</a></b> --- Frontend data binding library',
+                '<b><a href="https://www.bugzilla.org/">Bugzilla</a></b> --- Widely-used bug tracking system'
             ]
         }
     ],
@@ -329,21 +319,21 @@ var data = {
             author: '<b>Jesse Clark</b> & Lenore Blum',
             date: '2004',
             title: 'Reversible Cellular Automata on Infinite Configurations',
-            description: 'Presented at <a href="http://www.wolframscience.com/conference/2004/">Wolfram New Kind of Science 2004</a>.',
+            description: 'Presented at <i><a href="http://www.wolframscience.com/conference/2004/">Wolfram New Kind of Science 2004</a></i>.',
         },
         {
             author: '<b>Jesse Clark</b> & Mary-Anne Williams',
             date: '2015',
             title: 'Building a Content Management System with Static Site Generation Technology',
             comment: '(in preparation)',
-            description: 'Submitted to <a href="http://www.aswec2015.org/">Australian Software Engineering Conference 2015</a>'
+            description: 'Submitted to <i><a href="http://www.aswec2015.org/">Australian Software Engineering Conference 2015</a></i>'
         },
         {
             author: 'Xun Wang, <b>Jesse Clark</b> & Mary-Anne Williams',
             date: '2015',
             title: 'Human Interpretation of Robot Pointing',
             comment: '(in preparation)',
-            description: 'Submitted to Human-Robot Interaction Conference 2016'
+            description: 'Submitted to <i>Human-Robot Interaction Conference 2016</i>'
         }
     ],
     "Education": [
