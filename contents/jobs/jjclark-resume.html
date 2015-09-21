@@ -15,6 +15,7 @@ permalink: false
 	    	font-family: Helvetica, sans-serif;
 	    	text-align: center;
 	    	margin: 0em;
+            page-break-after: avoid;
 	    }
 	    
 	    acronym {
@@ -38,6 +39,7 @@ permalink: false
             margin: 1em auto 0.5em auto;
             font-size: x-large;
             font-weight: bold;
+            page-break-after: avoid;
         }
 
         #content a {
@@ -70,6 +72,9 @@ permalink: false
         .Contact .note {
             padding: 0.25em;
         }
+        .Summary {
+            display: none;
+        }
         
         .organization, .name {
             font-weight: bold;
@@ -97,6 +102,7 @@ permalink: false
         }
         #content ul.items li {
             margin: 0 0 0 2em;
+            page-break-inside: avoid;
         }
         #content ul.Academic_Publications {
             list-style-type: decimal;
@@ -108,21 +114,24 @@ permalink: false
             display: inline;
             float: none;
         }
-        .Academic_Publications [data-key]:after {
+        .Academic_Publications [data-key]:before:not(:first-child) {
             content: " ";
         }
         .Academic_Publications [data-key=description] {
             display: block;
         }
+        .Academic_Publications .title:before {
+            content: ": ";
+        }
         .Academic_Publications .date:before {
             content: " (";
         }
         .Academic_Publications .date:after {
-            content: "): ";
+            content: ")";
         }
 	</style>
 	<style media="print">
-	    a, #content .Contact a, acronym {
+	    a, #content a, acronym {
 	    	color: black;
 	    	text-decoration: none;
 	    	border: none;
@@ -168,27 +177,32 @@ var data = {
             note: 'Eligible to work in Australia and in the United States.'
         }
     ],
+    "Summary": [{items: [
+        'Classically-educated computer scientist and space engineer.',
+        'Autodidactic entrepreneur with valuable tech-industry contacts.',
+        'Aspiring cognition researcher.'
+    ]}],
     "Employment": [
         {
             organization: '<a href="http://www.uts.edu.au/">University of Technology, Sydney</a>',
             location: 'Ultimo, New South Wales',
             date: 'November 2014 -- Present',
-            position: 'Senior Researcher',
-            description: 'Used industry expertise to enhance the productivity of <a href="http://themagiclab.org/">The Innovation and Enterprise Research Lab</a>. Developed a novel content management system for data and publications. Implemented data collection and analysis tools for research papers. Oversaw the release of several open-source software packages, and contributed code to widely-used packages in the open-source community. Mentored PhD students in fully-reproducible research methods. Gave lectures on continuous integration, I.T. for entrepreneurs, and paper prototyping. Interviewed guest speakers. Organized research hackathons. Traveled to Japan to meet with roboticists.'
+            position: 'Senior Researcher, Australian Research Council Discovery Project',
+            description: 'Work closely with the Discovery Project leaders to create and enhance the project outcomes. Contributed to several social robotics experiments and publications in preparation. Used industry expertise to enhance the research productivity of <a href="http://themagiclab.org/">The Innovation and Enterprise Research Lab</a>. Developed a novel content management system for data and publications. Organized the release of several significant open-source software packages, including several to the PR2 Research Community, which includes Stanford University, MIT, University of Tokyo, UC Berkeley, Carnegie Mellon University, Bosch, and Samsung. Interviewed research lab collaborators. Organized research hackathons. <br> Mentored PhD students in fully-reproducible research methods; Mentored undergraduates in the UTS:Hatchery Entrepreneurship Program. Gave lectures on continuous integration in the School of Software; I.T. for Entrepreneurs, and Paper Prototyping in the UTS:Hatchery Entrepreneurship Program.  Worked with the Office of the Provost to develop curriculum for Bachelor of Creative Intelligence and Innovation electives. Member of the Scientific Visit to the University of Tokyo, Osaka University, and Sony --- this visit has the purpose of developing new research collaborations. '
         },
         {
             organization: '<a href="http://www.code4fun.com.au/">Sydney Programming School</a>',
             location: 'Mosman, New South Wales',
             date: 'April 2015 -- Present',
             position: 'Head of Teaching',
-            description: 'Taught Scratch and HTML to students age 8--13 at an after-school program. Developed curriculum and automated evaluation.'
+            description: 'Taught Scratch and HTML to students aged 8--13 at an after-school program. Developed curriculum and automated evaluation. This program has been well received and students can demonstrate new critical programming skills.'
         },
         {
             organization: '<a href="https://modusponens.org/">Modus Ponens, LLC</a>',
             // date: '2011 -- 2014',
             location: 'Palo Alto, California',
             position: 'Self-owned Consulting Business',
-            description: 'Started a business to develop web and mobile applications for Silicon Valley Startups. Applied many cutting-edge technologies to deliver maximum value to clients. Led teams of local and remote designers and developers. Had contact with prominent venture capitalists. Notable clients:',
+            description: 'Founded a new business to develop web and mobile applications for Silicon Valley Startups. Applied many cutting-edge technologies to deliver maximum value to clients. Led teams of local and remote designers and developers. Had contact with prominent venture capitalists. Notable clients include:',
             items: [
                 {
                     organization: '<a href="http://maverickapp.co/">Maverick Poker</a>',
@@ -218,15 +232,20 @@ var data = {
                     date: "2012",
                     description: "Developed an iPhone application to capture images of flu test strips and interpret the results."
                 },
-                {
-                    organization: '<a href="http://www.noledgy.com/">Noledgy</a>',
-                    date: "2012",
-                    description: "Developed infrastructure for remote update and disable of an iOS application."
-                },
+                // {
+                //     organization: '<a href="http://www.noledgy.com/">Noledgy</a>',
+                //     date: "2012",
+                //     description: "Developed infrastructure for remote update and disable of an iOS application."
+                // },
                 {
                     organization: '<a href="http://www.solarcity.com/">SolarCity</a>',
                     date: "2012",
                     description: 'Developed a Node.JS web application to display live sales metrics. Developed a C# Service Stack web application to display customer locations on a map.'
+                },
+                {
+                    organization: '<a href="http://swamisays.net">The Burn-Zone</a>',
+                    date: '2011 -- 2012',
+                    description: 'Managed overseas developers to create a realtime sports discussion game.'
                 },
                 {
                     organization: '<a href="http://robotpandaproductions.com/">Robot Panda Productions</a>',
@@ -237,17 +256,12 @@ var data = {
                 {
                     organization: '<a href="http://soundwave.co">Soundwave</a>',
                     date: "2011",
-                    description: 'iPad music education application development, business communication'
+                    description: 'Developed a prototype iPad music education app to present to investors.'
                 },
                 {
                     organization: '<a href="http://schmoooz.com/">Schmoooz</a>',
                     date: '2011',
                     description: 'Developed a Node.js backend and an iPhone frontend for a geolocation-based chat service.'
-                },
-                {
-                    organization: '<a href="http://swamisays.net">The Burn-Zone</a>',
-                    date: '2011 -- 2012',
-                    description: 'Realtime sports discussion game built with Backbone.js and Socket.io'
                 },
                 {
                     organization: '<a href="http://www.wheru.com/">wherU</a>',
@@ -271,7 +285,7 @@ var data = {
             location: 'Moffett Field, California',
             date: 'July 2007 -- April 2011',
             position: 'Computer Scientist',
-            description: 'Worked with the <a href="http://hci.arc.nasa.gov/">Human-Computer Interaction research group</a> to develop tools for mission control of the Space Shuttle, International Space Station, and Constellation programs. Acquired domain expertise and managed data-entry efforts to import legacy records. Implemented fulltext search, advanced relational search functionality, custom report formatting, and usability features for search interfaces. Established an automated testing framework. Deployed a continuous integration daemon.'
+            description: 'Worked with the <a href="http://hci.arc.nasa.gov/">Human-Computer Interaction Research Group</a> to develop innovative and highly dependable mission evaluation systems for the Space Shuttle, International Space Station, and Constellation programs. These systems were designed to enhance operator and astronaut safety and productivity. Acquired domain expertise and managed data-entry efforts to import legacy records. Implemented fulltext search, advanced relational search functionality, custom report formatting, and usability features for search interfaces. Deployed a continuous integration daemon. Established an automated testing framework.'
         },
         {
             organization: '<a href="http://www.gsfc.nasa.gov/">NASA Goddard Space Flight Center</a>',
@@ -312,8 +326,8 @@ var data = {
             items: [
                 '<b><a href="http://www.ros.org/">ROS</a></b> --- Preeminent Robot Operating System',
                 '<b><a href="http://docker.io/">Docker</a></b> --- Application container engine',
+                '<b><a href="http://www.metalsmith.io/">Metalsmith</a></b> --- Static website generator (used to create this document)',
                 '<b><a href="http://gulpjs.com/">Gulp.js</a></b> --- Streaming build system',
-                '<b><a href="http://www.metalsmith.io/">Metalsmith</a></b> --- Static website generator',
                 '<b><a href="http://handlebarsjs.com/">Handlebars.js</a></b> --- Declarative template engine',
                 '<b><a href="http://www.dustjs.com/">Dust.js</a></b> --- Asynchronous template engine',
                 '<b><a href="http://rivetsjs.com/">Rivets.js</a></b> --- Frontend data binding library',
@@ -330,17 +344,16 @@ var data = {
         },
         {
             author: '<b>Jesse Clark</b> & Mary-Anne Williams',
-            date: '2015',
+            // date: '2015',
             title: 'Building a Content Management System with Static Site Generation Technology',
-            comment: '(in preparation)',
-            description: 'Submitted to <i><a href="http://www.aswec2015.org/">Australian Software Engineering Conference 2015</a></i>'
+            description: 'In preparation for submission to the <i>ACM International Conference on Information and Knowledge Management</i>.'
+            // note: 'Submitted to <i><a href="http://www.aswec2015.org/">Australian Software Engineering Conference 2015</a></i>'
         },
         {
-            author: 'Xun Wang, <b>Jesse Clark</b> & Mary-Anne Williams',
-            date: '2015',
+            author: 'Xun Wang, <b>Jesse Clark</b>, Peter Gärdenfors, & Mary-Anne Williams',
+            // date: '2015',
             title: 'Human Interpretation of Robot Pointing',
-            comment: '(in preparation)',
-            description: 'Submitted to <i>Human-Robot Interaction Conference 2016</i>'
+            description: 'In preparation for submission to the <i>Human-Robot Interaction Conference</i>.'
         }
     ],
     "Education": [
@@ -349,8 +362,8 @@ var data = {
             location: 'Pittsburgh, Pennsylvania',
             date: 'May 2004',
             position: 'Bachelor of Science in Computer Science, Minor in Mathematical Sciences',
-            position2: '(4-year degree with research component)',
-            description: 'Coursework in systems programming, artificial intelligence, machine learning, cryptography, computational linguistics, bioinformatics. Systems programming experience, including implementation of a TCP/IP network stack, context-switching kernel, memory manager. Developed a genetic algorithm to solve constrained optimization problems in Mathematica.'
+            position2: '(4-year degree with research component --- Honours Equivalent)',
+            description: 'Coursework in systems programming, artificial intelligence, machine learning, cryptography, computational linguistics, bioinformatics. Systems programming experience, including implementation of a TCP/IP network stack, context-switching kernel, memory manager. Major research project developed a genetic algorithm to solve constrained optimization problems in Mathematica.'
         } 
     ]
 };
