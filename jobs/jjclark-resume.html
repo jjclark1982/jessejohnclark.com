@@ -23,6 +23,7 @@
             height: 2em;
             float: left;
             margin-right: 0.5em;
+            display: none;
         }
 
         #content ul {
@@ -75,8 +76,11 @@
         .Contact .note {
             padding: 0.25em;
         }
+        .Contact .address {
+            display: none;
+        }
         .Summary {
-            display: block;
+            display: none;
         }
 
         .organization, .name {
@@ -134,11 +138,14 @@
         }
 	</style>
 	<style media="print">
-	    a, #content a, acronym {
-	    	color: black;
-	    	text-decoration: none;
-	    	border: none;
-	    }
+        a, #content a, acronym {
+            color: black;
+            text-decoration: none;
+            border: none;
+        }
+        #content li>a, #content li>b>a, #content .description>a {
+            color: blue;
+        }
         /*img {
             display: none;
         }*/
@@ -147,6 +154,9 @@
         }
         .position {
             font-weight: bold;
+        }
+        .Employment > li:nth-child(3) > ul > li {
+            display:none;
         }
 	</style>
 </head>
@@ -174,7 +184,7 @@ var data = {
     ],
     "Contact": [
         {
-            phone: '<a href="tel:+61 459 763 305">+61 459 763 305</a>',
+            phone: '<a href="tel:+61 459 763 305">+61 (0) 459 763 305</a>',
             address: '1/35 Fairlight Crescent, Fairlight, NSW 2094',
             email: '<a href="mailto:jesse@modusponens.org">jesse@modusponens.org</a>',
             note: 'Eligible to work in Australia and in the United States.'
@@ -195,7 +205,7 @@ var data = {
             location: 'Ultimo, New South Wales',
             date: 'November 2014 -- Present',
             position: 'Senior Software Engineer',
-            description: 'Responsible for software operations for a winning RoboCup@Home team. Established on-premises source control, automated testing, packaging, installation, launching, and diagnostics of robot applications, and trained team to use them.<br><br>Overhauled operations at <a href="http://themagiclab.org/">The Innovation and Enterprise Research Lab</a> to use modern source control, package management, and continuous integration. Organized the release of open-source software packages. Developed software for social robotics experiments. Presented research results at conferences.<br><br>Delivered lectures on iOS Application Development, SQL databases, neural networks, continuous integration, Docker containers, and web components. Developed curriculum and automated evaluation of programming coursework. Mentored research students in fully-reproducible research methods. Mentored entrepreneurship students in rapid application development techniques.'
+            description: 'Responsible for software operations for a world-champion RoboCup@Home team. Established on-premises source control, automated testing, packaging, installation, launching, and diagnostics of robot applications, and trained team to use them.<br><br>Overhauled operations at <a href="http://themagiclab.org/">The Innovation and Enterprise Research Lab</a> to use modern source control, package management, and continuous integration. Organized the release of <a href="http://www.themagiclab.org/software">open-source software packages</a>. Developed software for social robotics experiments. Presented research results at conferences.<br><br>Delivered lectures on iOS application development, digital forensics, SQL databases, neural networks, continuous integration, Docker containers, and web components. Developed curriculum and introduced automated evaluation of programming coursework. Mentored research students in fully-reproducible research methods. Mentored entrepreneurship students in rapid application development techniques.'
         },
         {
             logo: '<img src="code4fun_logo_color.svg">',
@@ -203,7 +213,7 @@ var data = {
             location: 'Mosman, New South Wales',
             date: 'April 2015 -- Present',
             position: 'Head of Teaching',
-            description: 'Taught programming at an after-school program, as it grew from 0 to over 1,000 students aged 8--13. This program has been well received and students can demonstrate new computational thinking skills. Developed curriculum for:',
+            description: 'Delivered programming lessons at an after-school program, as it grew from zero to over 1,000 students aged 8--13. This program has been well received and students can demonstrate new computational thinking skills. Developed curriculum for:',
             items: [
                 '<a href="https://scratch.mit.edu/users/myhf/">Animation and Game Design</a> with Scratch and Snap',
                 '<a href="https://codepen.io/collection/DLxEJJ/">Computer Graphics</a> with JavaScript',
@@ -217,7 +227,7 @@ var data = {
             // date: '2011 -- 2014',
             location: 'Palo Alto, California',
             position: 'Self-owned Consulting Business',
-            description: 'Founded a new business to develop web and mobile applications for Silicon Valley startups. Applied many cutting-edge technologies to deliver maximum value to clients. Led teams of local and remote designers and developers. Had contact with prominent venture capitalists. Notable clients include:',
+            description: 'Founded a new business to develop web and mobile applications for Silicon Valley startups. Applied many cutting-edge technologies to deliver maximum value to clients. Led teams of local and remote designers and developers. Had contact with prominent venture capitalists. <span class="no_print">Notable clients include:</span>',
             items: [
                 {
                     organization: '<a href="http://maverickapp.co/">Maverick Poker</a>',
@@ -333,7 +343,7 @@ var data = {
     ],
     "Open-Source Software Publications": [
         {
-            description: 'Pubished explorable explanations and examples of best practices in several frameworks, for use in instructional materials. Published various small packages for file format conversion, terminal graphics, and text markup.',
+            description: 'Published explorable explanations and examples of best practices in several frameworks, for use in instructional materials. Published various small packages for file format conversion, terminal graphics, and text markup.',
             items: [
                 '<a href="https://github.com/jjclark1982/zodiac">Zodiac</a> --- Isomorphic web application engine using Backbone and Riak',
                 '<a href="http://jjclark1982.github.io/df-tileset-previewer/">Dwarf Fortress Tileset Previewer</a>',
@@ -350,7 +360,7 @@ var data = {
             items: [
                 '<b><a href="http://www.ros.org/">ROS</a></b> --- Preeminent Robot Operating System',
                 '<b><a href="http://docker.io/">Docker</a></b> --- Application container engine',
-                '<b><a href="http://www.metalsmith.io/">Metalsmith</a></b> --- Static website generator (used to create this document)',
+                '<b><a href="http://www.metalsmith.io/">Metalsmith</a></b> --- Static website generator (used to generate this HTML/PDF document)',
                 '<b><a href="http://gulpjs.com/">Gulp.js</a></b> --- Streaming build system',
                 '<b><a href="http://handlebarsjs.com/">Handlebars.js</a></b> --- Declarative template engine',
                 '<b><a href="http://www.dustjs.com/">Dust.js</a></b> --- Asynchronous template engine',
@@ -362,38 +372,38 @@ var data = {
     ],
     "Academic Publications": [
         {
-            author: '<b>Jesse Clark</b>; Lenore Blum',
+            author: 'Jesse Clark; Lenore Blum',
             date: '2004',
             title: 'Reversible Cellular Automata on Infinite Configurations',
             description: 'Presented at <i><a href="http://www.wolframscience.com/conference/2004/">Wolfram New Kind of Science 2004</a></i>.',
         },
         {
-            author: '<b>Jesse Clark</b>; Mary-Anne Williams',
+            author: 'Jesse Clark; Mary-Anne Williams',
             // date: '2015',
             title: 'Building a Content Management System with Static Site Generation Technology',
             description: 'In preparation for submission to the <i>ACM International Conference on Information and Knowledge Management</i>.'
             // note: 'Submitted to <i><a href="http://www.aswec2015.org/">Australian Software Engineering Conference 2015</a></i>'
         },
         {
-            author: 'Xun Wang; <b>Jesse Clark</b>; Peter Gärdenfors; Mary-Anne Williams',
+            author: 'Xun Wang; Jesse Clark; Peter Gärdenfors; Mary-Anne Williams',
             // date: '2015',
             title: 'Human Interpretation of Robot Pointing',
             description: 'In preparation for submission to the <i>Human-Robot Interaction Conference</i>.'
         },
         {
-            author: 'Tonkin, Meg; Vitale, J.; Ojha, Suman; <b>Clark, Jesse</b>; Pfeiffer, Sammy; Judge, William; Wang, Xun; Williams, Mary',
+            author: 'Tonkin, Meg; Vitale, J.; Ojha, Suman; Clark, Jesse; Pfeiffer, Sammy; Judge, William; Wang, Xun; Williams, Mary',
             date: '2017',
             title: 'Embodiment, Privacy and Social Robots: May I Remember You?',
             description: 'Presented at International Conference on Social Robotics, Tsukuba, Japan'
         },
         {
-            author: 'Herse, S.; Vitale, J.; Ebrahimian, D.; Tonkin, M.; Ojha, S.; Sidra, S.; Johnston, B.; Phillips, S.; Gudi, S. L. K. C.; <b>Clark, J.</b>, <i>et al.</i>',
+            author: 'Herse, S.; Vitale, J.; Ebrahimian, D.; Tonkin, M.; Ojha, S.; Sidra, S.; Johnston, B.; Phillips, S.; Gudi, S. L. K. C.; Clark, J., <i>et al.</i>',
             date: '2018',
             title: 'Bon Appetit! Robot Persuasion for Food Recommendation',
             description: 'ACM/IEEE International Conference on Human-Robot Interaction'
         },
         {
-            author: 'Vitale J, Tonkin M, Herse S, Ojha S, <b>Clark J</b>, Williams M, Wang X, Judge W',
+            author: 'Vitale J, Tonkin M, Herse S, Ojha S, Clark J, Williams M, Wang X, Judge W',
             date: '2018',
             title: 'Be More Transparent and Users Will Like You: A Robot Privacy and User Experience Design Experiment',
             description: 'ACM/IEEE International Conference on Human-Robot Interaction'
