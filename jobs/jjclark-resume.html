@@ -58,6 +58,9 @@
         .USContact {
             display: none;
         }
+        .AUContact {
+            display: none;
+        }
         .Contact {
             font-size: small;
             text-align: center;
@@ -177,15 +180,20 @@ Click <a href="jjclark-resume.pdf">here</a> to view this page as a PDF
 var data = {
     "USContact": [
         {
-            email: '<a href="mailto:jesse@modusponens.org">jesse@modusponens.org</a>',
             phone: '<a href="tel:+1-408-888-8883">(408) 888-8883</a>',
             address: '21435 Summit Road, Los Gatos, CA 95033'
         }
     ],
-    "Contact": [
+    "AUContact": [
         {
+            email: '<a href="mailto:jesse@modusponens.org">jesse@modusponens.org</a>',
             phone: '<a href="tel:+61 459 763 305">+61 (0) 459 763 305</a>',
             address: '1/35 Fairlight Crescent, Fairlight, NSW 2094',
+        }
+    ],
+    "Contact": [
+        {
+            phone: '<a href="tel:+1-408-888-8883">+1 (408) 888-8883</a>',
             email: '<a href="mailto:jesse@modusponens.org">jesse@modusponens.org</a>',
             note: 'Eligible to work in Australia and in the United States.'
         }
@@ -195,15 +203,23 @@ var data = {
         items: [
             'Developed product prototypes used to secure funding for early-stage startups.',
             'Produced visualizations and automated reports to help find insights in data for space mission teams and B2C sales departments.',
-            'Improved productivity and reliability of grant-funded research labs.',
+            'Improved productivity and reliability of robotics and biotech research labs.',
         ]
     }],
     "Employment": [
         {
+            logo: '<img src="Roche logo.svg">',
+            organization: '<a href="https://diagnostics.roche.com/global/en/products/product-category/molecular-diagnostics.html">Roche Molecular Diagnostics</a>',
+            location: 'Santa Clara, CA',
+            date: 'December 2019 -- Present',
+            position: 'Principal Software Engineer',
+            description: 'Developed software for <a href="https://en.wikipedia.org/wiki/Nanopore_sequencing">nanopore sequencing</a> instruments. Adapted mature data science pipelines to meet the needs of new experiments. Coordinated data compatibility between wet-lab experimentalists, GPU-accelerated signal processing, machine learning models, and circuit simulations.'
+        },
+        {
             logo: '<img src="UTS_logo.svg">',
             organization: '<a href="http://www.uts.edu.au/">University of Technology, Sydney</a>',
             location: 'Ultimo, New South Wales',
-            date: 'November 2014 -- Present',
+            date: 'November 2014 -- December 2019',
             position: 'Senior Software Engineer',
             description: 'Responsible for software operations for a world-champion RoboCup@Home team. Established on-premises source control, automated testing, packaging, installation, launching, and diagnostics of robot applications, and trained team to use them.<br><br>Overhauled operations at <a href="http://themagiclab.org/">The Innovation and Enterprise Research Lab</a> to use modern source control, package management, and continuous integration. Organized the release of <a href="http://www.themagiclab.org/software">open-source software packages</a>. Developed software for social robotics experiments. Presented research results at conferences.<br><br>Delivered lectures on iOS application development, digital forensics, SQL databases, neural networks, continuous integration, Docker containers, and web components. Developed curriculum and introduced automated evaluation of programming coursework. Mentored research students in fully-reproducible research methods. Mentored entrepreneurship students in rapid application development techniques.'
         },
@@ -211,7 +227,7 @@ var data = {
             logo: '<img src="code4fun_logo_color.svg">',
             organization: '<a href="http://www.code4fun.com.au/">Sydney Programming School</a>',
             location: 'Mosman, New South Wales',
-            date: 'April 2015 -- Present',
+            date: 'April 2015 -- December 2019',
             position: 'Head of Teaching',
             description: 'Delivered programming lessons at an after-school program, as it grew from zero to over 1,000 students aged 8--13. This program has been well received and students can demonstrate new computational thinking skills. Developed curriculum for:',
             items: [
@@ -408,6 +424,12 @@ var data = {
             title: 'Be More Transparent and Users Will Like You: A Robot Privacy and User Experience Design Experiment',
             description: 'ACM/IEEE International Conference on Human-Robot Interaction'
         },
+        {
+            author: '',
+            date: '2019',
+            title: 'UTS Unleashed! RoboCup@Home SSPL Champions 2019',
+            description: 'RoboCup 2019: Robot World Cup XXIII'
+        }
     ],
     "Education": [
         {
