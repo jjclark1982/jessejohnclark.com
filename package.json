@@ -15,7 +15,7 @@
   "license": "code: ISC, content: CC Attribution",
   "scripts": {
     "develop": "gulp develop",
-    "build": "gulp build",
+    "build": "metalsmith",
     "commit-build": "publish.sh"
   },
   "dependencies": {
