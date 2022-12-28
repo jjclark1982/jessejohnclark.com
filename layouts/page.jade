@@ -2,7 +2,8 @@ doctype html
 html
   head
     title= title
-    meta(name='description', content= site.description)
+    - if (description)
+        meta(name='description', content=description)
     link(rel='stylesheet', href='/assets/normalize.css')
     link(rel='stylesheet', href='/assets/hljs-github.css')
     link(rel='stylesheet', href='/assets/style.css')

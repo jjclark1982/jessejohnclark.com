@@ -18,3 +18,4 @@ for each html file in space posts:
 
 - clean up the css
 - use rel="me" for sidebar links
+- build with CI

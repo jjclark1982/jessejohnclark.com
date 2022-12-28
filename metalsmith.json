@@ -26,6 +26,7 @@
       "Jesse Clark": "gravatar@jessejohnclark.com"
     },
     "@metalsmith/markdown": {},
+    "metalsmith-metallic": {},
     "metalsmith-more": {
       "ext": "html",
       "alwaysAddKey": false
@@ -37,8 +38,12 @@
       "date": "YYYY",
       "linksets": [
         {
+          "match": { "collection": "pages" },
+          "pattern": ":title/"
+        },
+        {
           "match": { "collection": "posts" },
-          "pattern": "posts/:date/:title"
+          "pattern": "posts/:date/:title/"
         }
       ]
     },
@@ -65,7 +70,7 @@
     },
     "@metalsmith/layouts": {
       "directory": "layouts",
-      "default": "page.jade",
+      "default": null,
       "pattern": "**/*.html",
       "suppressNoFilesError": true,
       "engineOptions": {
@@ -82,7 +87,6 @@
         "pretty": true
       }
     },
-    "metalsmith-metallic": {},
     "metalsmith-feed": {
       "collection": "posts"
     },
