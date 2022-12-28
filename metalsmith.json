@@ -1,5 +1,6 @@
 {
-  "source": "./contents",
+  "source": "./src",
+  "destination": "./build",
   "clean": false,
   "metadata": {
     "author": "Jesse Clark",
@@ -24,17 +25,20 @@
     "metalsmith-gravatar": {
       "Jesse Clark": "gravatar@jessejohnclark.com"
     },
-    "metalsmith-metallic": {},
-    "metalsmith-markdown": {},
-    "metalsmith-more": {
-      "ext": "html",
-      "alwaysAddKey": true
-    },
-    "metalsmith-permalinks": {
+    "@metalsmith/markdown": {},
+    "@metalsmith/permalinks": {
+      "duplicatesFail": false,
       "pattern": ":collection/:title",
-      "relative": false
+      "relative": false,
+      "date": "YYYY/MM/DD",
+      "linksets": [
+        {
+          "match": { "collection": "posts" },
+          "pattern": "posts/:date/:title"
+        }
+      ]
     },
-    "metalsmith-collections": {
+    "@metalsmith/collections": {
       "posts": {
         "pattern": "*.md",
         "sortBy": "date",
@@ -47,7 +51,7 @@
     "metalsmith-pagination": {
       "collections.posts": {
         "perPage": 10,
-        "template": "index.jade",
+        "layout": "index.jade",
         "first": "index.html",
         "path": "posts/:num/index.html",
         "pageMetadata": {
@@ -55,23 +59,32 @@
         }
       }
     },
-    "metalsmith-templates": {
-      "engine": "jade",
-      "directory": "./templates"
+    "@metalsmith/layouts": {
+      "directory": "layouts",
+      "default": "page.jade",
+      "pattern": "**/*.html",
+      "suppressNoFilesError": true,
+      "engineOptions": {
+        "pretty": true
+      }
     },
+    "@metalsmith/in-place": {
+      "suppressNoFilesError": true,
+      "directory": "layouts",
+      "pattern": "contents/**/*",
+      "setFilename": true,
+      "engineOptions": {
+        "cache": false,
+        "pretty": true
+      }
+    },
+    "metalsmith-more": {
+      "ext": "html",
+      "alwaysAddKey": true
+    },
+    "metalsmith-metallic": {},
     "metalsmith-feed": {
       "collection": "posts"
-    },
-    "metalsmith-concat": {
-      "files": "**/*.css",
-      "output": "assets/style.css"
-    },
-    "metalsmith-autoprefixer": {},
-    "metalsmith-beautify": {
-      "css": false,
-      "html": false,
-      "indent_size": 2,
-      "indent_char": " "
     },
     "metalsmith-pdf": {
       "pattern": "jobs/jjclark-resume.html",

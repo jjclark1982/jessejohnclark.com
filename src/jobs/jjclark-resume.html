@@ -1,0 +1,419 @@
+---
+layout: false
+permalink: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Jesse Clark’s CV</title>
+	<style>
+	    body {
+	        font-family: serif;
+	    }
+        
+	    h1, h2, h3, h4, h5, h6 {
+	    	font-family: Helvetica, sans-serif;
+	    	text-align: center;
+	    	margin: 0em;
+            page-break-after: avoid;
+	    }
+	    
+	    acronym {
+	        border: none;
+	    }
+
+        #content ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #content li {
+            margin-bottom: 1em;
+        }
+
+        #content > ul:before {
+            display: block;
+            content: attr(data-key);
+            font-family: Helvetica, sans-serif;
+            text-align: center;
+            margin: 1em auto 0.5em auto;
+            font-size: x-large;
+            font-weight: bold;
+            page-break-after: avoid;
+        }
+
+        #content a {
+            color: navy;
+            text-decoration: none;
+        }
+        #content a:hover {
+            color: blue;
+            border-bottom: 1px solid blue;
+        }
+
+        .USContact {
+            display: none;
+        }
+        .Contact {
+            font-size: small;
+            text-align: center;
+        }
+        ul.Contact:before {
+            display:none !important;
+        }
+        #content .Contact a {/*, #content .Open_Source_Software_Publications a {*/
+/*            color: blue;
+            text-decoration: underline;
+*/        }
+        .Contact .email, .Contact .phone, .Contact .address {
+            display: inline;
+            padding: 0.75em;
+        }
+        .Contact .note {
+            padding: 0.25em;
+        }
+        .Summary {
+            display: none;
+        }
+        
+        .organization, .name {
+            font-weight: bold;
+            display: inline;
+        }
+
+        .location::before {
+            content: ", "
+        }
+        .location {
+            display: inline;
+        }
+        .position {
+        	font-style: italic;
+        }
+        .date {
+            float: right;
+        }
+        .description {
+            clear: both;
+        }
+
+        #content ul.items {
+            list-style-type: disc;
+        }
+        #content ul.items li {
+            margin: 0 0 0 2em;
+            page-break-inside: avoid;
+        }
+        #content ul.Academic_Publications {
+            list-style-type: decimal;
+        }
+        #content ul.Academic_Publications li {
+            margin: 0 0 0.5em 1.5em;
+        }
+        .Academic_Publications [data-key] {
+            display: inline;
+            float: none;
+        }
+        .Academic_Publications [data-key]:before:not(:first-child) {
+            content: " ";
+        }
+        .Academic_Publications [data-key=description] {
+            display: block;
+        }
+        .Academic_Publications .title:before {
+            content: ": ";
+        }
+        .Academic_Publications .date:before {
+            content: " (";
+        }
+        .Academic_Publications .date:after {
+            content: ")";
+        }
+	</style>
+	<style media="print">
+	    a, #content a, acronym {
+	    	color: black;
+	    	text-decoration: none;
+	    	border: none;
+	    }
+        img {
+            display: none;
+        }
+	    .no_print {
+	        display: none;
+        }
+        .position {
+            font-weight: bold;
+        }
+	</style>
+</head>
+
+<body>
+<div class="no_print">
+Click <a href="jjclark-resume.pdf">here</a> to download this page as a printer-friendly PDF
+<hr/>
+</div>
+
+<h1>Jesse Clark</h1>
+
+<div id="content"><ul data-key="USContact" class="USContact"><li><div data-key="email" class="email"><a href="mailto:jesse@modusponens.org">jesse@modusponens.org</a></div><div data-key="phone" class="phone"><a href="tel:+1-408-888-8883">(408) 888-8883</a></div><div data-key="address" class="address">21435 Summit Road, Los Gatos, CA 95033</div></li></ul><ul data-key="Contact" class="Contact"><li><div data-key="phone" class="phone"><a href="tel:+61 459 763 305">+61 459 763 305</a></div><div data-key="address" class="address">1/35 Fairlight Crescent, Fairlight, NSW 2094</div><div data-key="email" class="email"><a href="mailto:Jesse.Clark@uts.edu.au">Jesse.Clark@uts.edu.au</a></div><div data-key="note" class="note">Eligible to work in Australia and in the United States.</div></li></ul><ul data-key="Summary" class="Summary"><li><ul data-key="items" class="items"><li>Classically-educated computer scientist and space engineer.</li><li>Autodidactic entrepreneur with leadership experience and valuable tech-industry connections.</li></ul></li></ul><ul data-key="Employment" class="Employment"><li><div data-key="organization" class="organization"><a href="http://www.uts.edu.au/">University of Technology, Sydney</a></div><div data-key="location" class="location">Ultimo, New South Wales</div><div data-key="date" class="date">November 2014 – Present</div><div data-key="position" class="position">Senior Software Engineer</div><div data-key="description" class="description">Used industry expertise to enhance the research productivity of <a href="http://themagiclab.org/">The Innovation and Enterprise Research Lab</a>. Contributed to several social robotics experiments and publications. Developed a novel content management system for data and publications. Organized the release of several significant open-source software packages. <br><br>Developed curriculum and automated evaluation for iOS application development. Delivered lectures on SQL databases, continuous integration, Docker containers, and web components. Mentored research students in fully-reproducible research methods. Mentored entrepreneurship students in rapid application development techniques</div></li><li><div data-key="organization" class="organization"><a href="http://www.code4fun.com.au/">Sydney Programming School</a></div><div data-key="location" class="location">Mosman, New South Wales</div><div data-key="date" class="date">April 2015 – Present</div><div data-key="position" class="position">Head of Teaching</div><div data-key="description" class="description">Taught Scratch, Python, and JavaScript to students aged 8–13 at an after-school program, as it grew from 0 to over 1,000 students. Developed curriculum in 2D computer graphics. This program has been well received and students can demonstrate new critical programming skills.</div></li><li><div data-key="organization" class="organization"><a href="https://modusponens.org/">Modus Ponens, LLC</a></div><div data-key="location" class="location">Palo Alto, California</div><div data-key="position" class="position">Self-owned Consulting Business</div><div data-key="description" class="description">Founded a new business to develop web and mobile applications for Silicon Valley Startups. Applied many cutting-edge technologies to deliver maximum value to clients. Led teams of local and remote designers and developers. Had contact with prominent venture capitalists. Notable clients include:</div><ul data-key="items" class="items"><li><div data-key="organization" class="organization"><a href="http://maverickapp.co/">Maverick Poker</a></div><div data-key="date" class="date">2014</div><div data-key="description" class="description">Implemented a data and permissions model in <a href="http://firebase.com/">Firebase</a> for an online Poker game. Trained staff in iOS development.</div></li><li><div data-key="organization" class="organization"><a href="https://www.onelessdesk.com.au/">OneLessDesk</a></div><div data-key="date" class="date">2014</div><div data-key="description" class="description">Built a message-queue-based tool for business process management.</div></li><li><div data-key="organization" class="organization"><a href="http://destinationsc.co/">Destination Software</a></div><div data-key="date" class="date">2013 – 2014</div><div data-key="position" class="position">Principal Software Engineer</div><div data-key="description" class="description">Developed a high-availability e-commerce web server for the travel and hospitality industry. Implemented automated deployment and zero-downtime updates of Node.js and Riak servers. Supported web-accessible map/reduce queries of combined domain data and analytics data. Trained new developers in MVC and Agile methodologies.</div></li><li><div data-key="organization" class="organization"><a href="http://www.gobold.ly/">GoBoldly</a></div><div data-key="date" class="date">2013</div><div data-key="position" class="position">Full-Stack Developer</div><div data-key="description" class="description">Implemented a novel isomorphic web application engine that works even in javascript-disabled environments, and progressively enhances based on available functionality. Implemented an iOS frontend and <a href="parse.com">Parse.com</a> backend for a geo-social networking app.</div></li><li><div data-key="organization" class="organization"><a href="http://www.scanadu.com/">Scanadu</a></div><div data-key="date" class="date">2012</div><div data-key="description" class="description">Developed an iPhone application to capture images of flu test strips and interpret the results.</div></li><li><div data-key="organization" class="organization"><a href="http://www.solarcity.com/">SolarCity</a></div><div data-key="date" class="date">2012</div><div data-key="description" class="description">Developed a Node.JS web application to display live sales metrics. Developed a C# Service Stack web application to display customer locations on a map.</div></li><li><div data-key="organization" class="organization"><a href="http://swamisays.net">The Burn-Zone</a></div><div data-key="date" class="date">2011 – 2012</div><div data-key="description" class="description">Managed overseas developers to create a realtime sports discussion game.</div></li><li><div data-key="organization" class="organization"><a href="http://robotpandaproductions.com/">Robot Panda Productions</a></div><div data-key="date" class="date">2011</div><div data-key="description" class="description">Developed authentication process, remote procedure call API, and database schema for a political Facebook game.</div></li><li><div data-key="organization" class="organization"><a href="http://soundwave.co">Soundwave</a></div><div data-key="date" class="date">2011</div><div data-key="description" class="description">Developed a prototype iPad music education app to present to investors.</div></li><li><div data-key="organization" class="organization"><a href="http://schmoooz.com/">Schmoooz</a></div><div data-key="date" class="date">2011</div><div data-key="description" class="description">Developed a Node.js backend and an iPhone frontend for a geolocation-based chat service.</div></li><li><div data-key="organization" class="organization"><a href="http://www.wheru.com/">wherU</a></div><div data-key="date" class="date">2011</div><div data-key="description" class="description">Developed an iPhone frontend for a college campus check-in service.</div></li><li><div data-key="organization" class="organization"><a href="http://gabberface.com/">Gabberface</a></div><div data-key="date" class="date">2010</div><div data-key="description" class="description">Optimized network and database performance for a PHP/MySQL Facebook search engine. Improved site performance by 7x, resulting in over 25% more traffic.</div></li><li><div data-key="organization" class="organization"><a href="http://wowgen.com/">WoWGen</a></div><div data-key="date" class="date">2008</div><div data-key="description" class="description">Deployed a Ruby on Rails site to track and compare World of Warcraft player statistics, and associated administration tools. Developed an interpreter for dynamic character equipment formulas extracted from game data files.</div></li></ul></li><li><div data-key="organization" class="organization"><a href="http://www.arc.nasa.gov/">NASA Ames Research Center</a></div><div data-key="location" class="location">Moffett Field, California</div><div data-key="date" class="date">July 2007 – April 2011</div><div data-key="position" class="position">Computer Scientist</div><div data-key="description" class="description">Worked with the <a href="http://hci.arc.nasa.gov/">Human-Computer Interaction Research Group</a> to develop innovative and highly dependable mission evaluation systems for the Space Shuttle, International Space Station, and Constellation programs. These systems were designed to enhance operator and astronaut safety and productivity. Acquired domain expertise and managed data-entry efforts to import legacy records. Implemented fulltext search, advanced relational search functionality, custom report formatting, and usability features for search interfaces. Deployed a continuous integration daemon. Established an automated testing framework.</div></li><li><div data-key="organization" class="organization"><a href="http://www.gsfc.nasa.gov/">NASA Goddard Space Flight Center</a></div><div data-key="location" class="location">Greenbelt, Maryland</div><div data-key="date" class="date">June 2004 – June 2007</div><div data-key="position" class="position">Computer Engineer</div><div data-key="description" class="description">Developed robotics and graphics software to simulate contact dynamics for <a href="http://en.wikipedia.org/wiki/STS-125">Hubble Space Telescope Servicing Mission 4</a>. Used a <a href="http://www.fanucrobotics.com/">FANUC</a> industrial robot and a computer running a physics simulation to mimic the behavior of a <a href="https://en.wikipedia.org/wiki/Canadarm">Canadarm</a>, which is too lightweight to operate normally in Earth gravity. Used capacative sensors to guide robotic orientation, and summarized those sensors in a congressional <a href="https://en.wikipedia.org/wiki/Design_review_(U.S._government)">design review</a>. <br> Recovered legacy climate data from the <a href="http://en.wikipedia.org/wiki/Nimbus_program">Nimbus</a> and <a href="http://en.wikipedia.org/wiki/Television_Infrared_Observation_Satellite">TIROS</a> projects. Wrote Perl scripts to correct for degradation and translate to modern formats. Visualized results in Mathematica.</div></li><li><div data-key="organization" class="organization"><a href="http://woz.com/">Wheels of Zeus</a></div><div data-key="location" class="location">Los Gatos, California</div><div data-key="date" class="date">2003</div><div data-key="description" class="description">Wrote PIC assembly code and laid out a printed circuitboard for a Segway key duplicator.</div></li><li><div data-key="organization" class="organization"><a href="http://www.ri.cmu.edu/research_lab_group_detail.html?lab_id=47">Institute for Computer Assisted Orthopaedic Surgery</a></div><div data-key="location" class="location">Pittsburgh, Pennsylvania</div><div data-key="date" class="date">May 2002 – July 2002</div><div data-key="position" class="position">Intern</div><div data-key="description" class="description">Designed and developed a graphical user interface for hospital patient database management and integration with in-house tools. In C and X-forms, developed a program to align x-rays with CT scans using a 6-dimensional <acronym title="Broyden-Fletcher-Goldfarb-Shanno">BFGS</acronym> search. Modified control hardware for use with computer systems in the operating room.</div></li><li><div data-key="organization" class="organization"><a href="http://refractivedialer.com/">Refract Media</a></div><div data-key="location" class="location">Los Gatos, California</div><div data-key="date" class="date">1997 – 2000</div><div data-key="description" class="description">Configured and maintained Linux servers for a web hosting company during the dot-com boom.</div></li></ul><ul data-key="Open-Source Software Publications" class="Open_Source_Software_Publications"><li><div data-key="description" class="description">Published a novel isomorphic web application engine, <b><a href="https://github.com/jjclark1982/zodiac">Zodiac</a></b>, which uses asynchronous Dust templates to stream dynamic Backbone views as they are being rendered, marked up with enough information to reinstantiate the same views on the frontend. Automatically routes models to declared endpoints. Communicates Riak metadata for automatic conflict detection and resolution.</div></li><li><div data-key="description" class="description">Pubished examples of best practices in several web frameworks, for use in instructional materials. Published various small packages for format conversion, terminal graphics, and finite differences.</div></li><li><div data-key="description" class="description">Worked with the open-source community to discover areas for improvement in popular software packages, implement those improvements and automated tests to verify them, and publish the results. Notable contributions:</div><ul data-key="items" class="items"><li><b><a href="http://www.ros.org/">ROS</a></b> — Preeminent Robot Operating System</li><li><b><a href="http://docker.io/">Docker</a></b> — Application container engine</li><li><b><a href="http://www.metalsmith.io/">Metalsmith</a></b> — Static website generator (used to create this document)</li><li><b><a href="http://gulpjs.com/">Gulp.js</a></b> — Streaming build system</li><li><b><a href="http://handlebarsjs.com/">Handlebars.js</a></b> — Declarative template engine</li><li><b><a href="http://www.dustjs.com/">Dust.js</a></b> — Asynchronous template engine</li><li><b><a href="http://rivetsjs.com/">Rivets.js</a></b> — Frontend data binding library</li><li><b><a href="https://www.bugzilla.org/">Bugzilla</a></b> — Widely-used bug tracking system</li></ul></li></ul><ul data-key="Academic Publications" class="Academic_Publications"><li><div data-key="author" class="author"><b>Jesse Clark</b> &amp; Lenore Blum</div><div data-key="date" class="date">2004</div><div data-key="title" class="title">Reversible Cellular Automata on Infinite Configurations</div><div data-key="description" class="description">Presented at <i><a href="http://www.wolframscience.com/conference/2004/">Wolfram New Kind of Science 2004</a></i>.</div></li><li><div data-key="author" class="author"><b>Jesse Clark</b> &amp; Mary-Anne Williams</div><div data-key="title" class="title">Building a Content Management System with Static Site Generation Technology</div><div data-key="description" class="description">In preparation for submission to the <i>ACM International Conference on Information and Knowledge Management</i>.</div></li><li><div data-key="author" class="author">Xun Wang, <b>Jesse Clark</b>, Peter Gärdenfors, &amp; Mary-Anne Williams</div><div data-key="title" class="title">Human Interpretation of Robot Pointing</div><div data-key="description" class="description">In preparation for submission to the <i>Human-Robot Interaction Conference</i>.</div></li></ul><ul data-key="Education" class="Education"><li><div data-key="organization" class="organization"><a href="http://www.cmu.edu/">Carnegie Mellon University</a></div><div data-key="location" class="location">Pittsburgh, Pennsylvania</div><div data-key="date" class="date">May 2004</div><div data-key="position" class="position">Bachelor of Science in Computer Science, Minor in Mathematical Sciences</div><div data-key="position2" class="position2">(4-year degree with research component — Honours Equivalent)</div><div data-key="description" class="description">Coursework in systems programming, artificial intelligence, machine learning, cryptography, computational linguistics, bioinformatics. Systems programming experience, including implementation of a TCP/IP network stack, context-switching kernel, memory manager. Major research project developed a genetic algorithm to solve constrained optimization problems in Mathematica.</div></li></ul></div>
+
+</body>
+
+<script>
+var data = {
+    "USContact": [
+        {
+            email: '<a href="mailto:jesse@modusponens.org">jesse@modusponens.org</a>',
+            phone: '<a href="tel:+1-408-888-8883">(408) 888-8883</a>',
+            address: '21435 Summit Road, Los Gatos, CA 95033'
+        }
+    ],
+    "Contact": [
+        {
+            phone: '<a href="tel:+61 459 763 305">+61 459 763 305</a>',
+            address: '1/35 Fairlight Crescent, Fairlight, NSW 2094',
+            email: '<a href="mailto:Jesse.Clark@uts.edu.au">Jesse.Clark@uts.edu.au</a>',
+            note: 'Eligible to work in Australia and in the United States.'
+        }
+    ],
+    "Summary": [{items: [
+        'Classically-educated computer scientist and space engineer.',
+        'Autodidactic entrepreneur with leadership experience and valuable tech-industry connections.'
+    ]}],
+    "Employment": [
+        {
+            organization: '<a href="http://www.uts.edu.au/">University of Technology, Sydney</a>',
+            location: 'Ultimo, New South Wales',
+            date: 'November 2014 -- Present',
+            position: 'Senior Software Engineer',
+            description: 'Used industry expertise to enhance the research productivity of <a href="http://themagiclab.org/">The Innovation and Enterprise Research Lab</a>. Contributed to several social robotics experiments and publications. Developed a novel content management system for data and publications. Organized the release of several significant open-source software packages. <br><br>Developed curriculum and automated evaluation for iOS application development. Delivered lectures on SQL databases, continuous integration, Docker containers, and web components. Mentored research students in fully-reproducible research methods. Mentored entrepreneurship students in rapid application development techniques'
+        },
+        {
+            organization: '<a href="http://www.code4fun.com.au/">Sydney Programming School</a>',
+            location: 'Mosman, New South Wales',
+            date: 'April 2015 -- Present',
+            position: 'Head of Teaching',
+            description: 'Taught Scratch, Python, and JavaScript to students aged 8--13 at an after-school program, as it grew from 0 to over 1,000 students. Developed curriculum in 2D computer graphics. This program has been well received and students can demonstrate new critical programming skills.'
+        },
+        {
+            organization: '<a href="https://modusponens.org/">Modus Ponens, LLC</a>',
+            // date: '2011 -- 2014',
+            location: 'Palo Alto, California',
+            position: 'Self-owned Consulting Business',
+            description: 'Founded a new business to develop web and mobile applications for Silicon Valley Startups. Applied many cutting-edge technologies to deliver maximum value to clients. Led teams of local and remote designers and developers. Had contact with prominent venture capitalists. Notable clients include:',
+            items: [
+                {
+                    organization: '<a href="http://maverickapp.co/">Maverick Poker</a>',
+                    date: "2014",
+                    // position: 'Lead Backend Developer',
+                    description: 'Implemented a data and permissions model in <a href="http://firebase.com/">Firebase</a> for an online Poker game. Trained staff in iOS development.'
+                },
+                {
+                    organization: '<a href="https://www.onelessdesk.com.au/">OneLessDesk</a>',
+                    date: "2014",
+                    description: 'Built a message-queue-based tool for business process management.'
+                },
+                {
+                    organization: '<a href="http://destinationsc.co/">Destination Software</a>',
+                    date: "2013 -- 2014",
+                    position: 'Principal Software Engineer',
+                    description: "Developed a high-availability e-commerce web server for the travel and hospitality industry. Implemented automated deployment and zero-downtime updates of Node.js and Riak servers. Supported web-accessible map/reduce queries of combined domain data and analytics data. Trained new developers in MVC and Agile methodologies."
+                },
+                {
+                    organization: '<a href="http://www.gobold.ly/">GoBoldly</a>',
+                    date: "2013",
+                    position: 'Full-Stack Developer',
+                    description: 'Implemented a novel isomorphic web application engine that works even in javascript-disabled environments, and progressively enhances based on available functionality. Implemented an iOS frontend and <a href="parse.com">Parse.com</a> backend for a geo-social networking app.'
+                },
+                {
+                    organization: '<a href="http://www.scanadu.com/">Scanadu</a>',
+                    date: "2012",
+                    description: "Developed an iPhone application to capture images of flu test strips and interpret the results."
+                },
+                // {
+                //     organization: '<a href="http://www.noledgy.com/">Noledgy</a>',
+                //     date: "2012",
+                //     description: "Developed infrastructure for remote update and disable of an iOS application."
+                // },
+                {
+                    organization: '<a href="http://www.solarcity.com/">SolarCity</a>',
+                    date: "2012",
+                    description: 'Developed a Node.JS web application to display live sales metrics. Developed a C# Service Stack web application to display customer locations on a map.'
+                },
+                {
+                    organization: '<a href="http://swamisays.net">The Burn-Zone</a>',
+                    date: '2011 -- 2012',
+                    description: 'Managed overseas developers to create a realtime sports discussion game.'
+                },
+                {
+                    organization: '<a href="http://robotpandaproductions.com/">Robot Panda Productions</a>',
+                    date: "2011",
+                    // position: "Network Programmer",
+                    description: 'Developed authentication process, remote procedure call API, and database schema for a political Facebook game.'
+                },
+                {
+                    organization: '<a href="http://soundwave.co">Soundwave</a>',
+                    date: "2011",
+                    description: 'Developed a prototype iPad music education app to present to investors.'
+                },
+                {
+                    organization: '<a href="http://schmoooz.com/">Schmoooz</a>',
+                    date: '2011',
+                    description: 'Developed a Node.js backend and an iPhone frontend for a geolocation-based chat service.'
+                },
+                {
+                    organization: '<a href="http://www.wheru.com/">wherU</a>',
+                    date: '2011',
+                    description: 'Developed an iPhone frontend for a college campus check-in service.'
+                },
+                {
+                    organization: '<a href="http://gabberface.com/">Gabberface</a>',
+                    date: '2010',
+                    description: 'Optimized network and database performance for a PHP/MySQL Facebook search engine. Improved site performance by 7x, resulting in over 25% more traffic.'
+                },
+                {
+                    organization: '<a href="http://wowgen.com/">WoWGen</a>',
+                    date: '2008',
+                    description: 'Deployed a Ruby on Rails site to track and compare World of Warcraft player statistics, and associated administration tools. Developed an interpreter for dynamic character equipment formulas extracted from game data files.'
+                }
+            ]
+        },
+        {
+            organization: '<a href="http://www.arc.nasa.gov/">NASA Ames Research Center</a>',
+            location: 'Moffett Field, California',
+            date: 'July 2007 -- April 2011',
+            position: 'Computer Scientist',
+            description: 'Worked with the <a href="http://hci.arc.nasa.gov/">Human-Computer Interaction Research Group</a> to develop innovative and highly dependable mission evaluation systems for the Space Shuttle, International Space Station, and Constellation programs. These systems were designed to enhance operator and astronaut safety and productivity. Acquired domain expertise and managed data-entry efforts to import legacy records. Implemented fulltext search, advanced relational search functionality, custom report formatting, and usability features for search interfaces. Deployed a continuous integration daemon. Established an automated testing framework.'
+        },
+        {
+            organization: '<a href="http://www.gsfc.nasa.gov/">NASA Goddard Space Flight Center</a>',
+            location: 'Greenbelt, Maryland',
+            date: 'June 2004 -- June 2007',
+            position: 'Computer Engineer',
+            description: 'Developed robotics and graphics software to simulate contact dynamics for <a href="http://en.wikipedia.org/wiki/STS-125">Hubble Space Telescope Servicing Mission 4</a>. Used a <a href="http://www.fanucrobotics.com/">FANUC</a> industrial robot and a computer running a physics simulation to mimic the behavior of a <a href="https://en.wikipedia.org/wiki/Canadarm">Canadarm</a>, which is too lightweight to operate normally in Earth gravity. Used capacative sensors to guide robotic orientation, and summarized those sensors in a congressional <a href="https://en.wikipedia.org/wiki/Design_review_(U.S._government)">design review</a>. <br> Recovered legacy climate data from the <a href="http://en.wikipedia.org/wiki/Nimbus_program">Nimbus</a> and <a href="http://en.wikipedia.org/wiki/Television_Infrared_Observation_Satellite">TIROS</a> projects. Wrote Perl scripts to correct for degradation and translate to modern formats. Visualized results in Mathematica.'
+        },
+        {
+            organization: '<a href="http://woz.com/">Wheels of Zeus</a>',
+            location: 'Los Gatos, California',
+            date: '2003',
+            description: 'Wrote PIC assembly code and laid out a printed circuitboard for a Segway key duplicator.'
+        },
+        {
+            organization: '<a href="http://www.ri.cmu.edu/research_lab_group_detail.html?lab_id=47">Institute for Computer Assisted Orthopaedic Surgery</a>',
+            location: 'Pittsburgh, Pennsylvania',
+            date: 'May 2002 -- July 2002',
+            position: 'Intern',
+            description: 'Designed and developed a graphical user interface for hospital patient database management and integration with in-house tools. In C and X-forms, developed a program to align x-rays with CT scans using a 6-dimensional <acronym title="Broyden-Fletcher-Goldfarb-Shanno">BFGS</acronym> search. Modified control hardware for use with computer systems in the operating room.'
+        },
+        {
+            organization: '<a href="http://refractivedialer.com/">Refract Media</a>',
+            location: 'Los Gatos, California',
+            date: '1997 -- 2000',
+            description: 'Configured and maintained Linux servers for a web hosting company during the dot-com boom.'
+        }
+    ],
+    "Open-Source Software Publications": [
+        {
+            description: 'Published a novel isomorphic web application engine, <b><a href="https://github.com/jjclark1982/zodiac">Zodiac</a></b>, which uses asynchronous Dust templates to stream dynamic Backbone views as they are being rendered, marked up with enough information to reinstantiate the same views on the frontend. Automatically routes models to declared endpoints. Communicates Riak metadata for automatic conflict detection and resolution.'
+        },
+        {
+            description: 'Pubished examples of best practices in several web frameworks, for use in instructional materials. Published various small packages for format conversion, terminal graphics, and finite differences.'
+        },
+        {
+            description: 'Worked with the open-source community to discover areas for improvement in popular software packages, implement those improvements and automated tests to verify them, and publish the results. Notable contributions:',
+            items: [
+                '<b><a href="http://www.ros.org/">ROS</a></b> --- Preeminent Robot Operating System',
+                '<b><a href="http://docker.io/">Docker</a></b> --- Application container engine',
+                '<b><a href="http://www.metalsmith.io/">Metalsmith</a></b> --- Static website generator (used to create this document)',
+                '<b><a href="http://gulpjs.com/">Gulp.js</a></b> --- Streaming build system',
+                '<b><a href="http://handlebarsjs.com/">Handlebars.js</a></b> --- Declarative template engine',
+                '<b><a href="http://www.dustjs.com/">Dust.js</a></b> --- Asynchronous template engine',
+                '<b><a href="http://rivetsjs.com/">Rivets.js</a></b> --- Frontend data binding library',
+                '<b><a href="https://www.bugzilla.org/">Bugzilla</a></b> --- Widely-used bug tracking system'
+            ]
+        }
+    ],
+    "Academic Publications": [
+        {
+            author: '<b>Jesse Clark</b> & Lenore Blum',
+            date: '2004',
+            title: 'Reversible Cellular Automata on Infinite Configurations',
+            description: 'Presented at <i><a href="http://www.wolframscience.com/conference/2004/">Wolfram New Kind of Science 2004</a></i>.',
+        },
+        {
+            author: '<b>Jesse Clark</b> & Mary-Anne Williams',
+            // date: '2015',
+            title: 'Building a Content Management System with Static Site Generation Technology',
+            description: 'In preparation for submission to the <i>ACM International Conference on Information and Knowledge Management</i>.'
+            // note: 'Submitted to <i><a href="http://www.aswec2015.org/">Australian Software Engineering Conference 2015</a></i>'
+        },
+        {
+            author: 'Xun Wang, <b>Jesse Clark</b>, Peter Gärdenfors, & Mary-Anne Williams',
+            // date: '2015',
+            title: 'Human Interpretation of Robot Pointing',
+            description: 'In preparation for submission to the <i>Human-Robot Interaction Conference</i>.'
+        }
+    ],
+    "Education": [
+        {
+            organization: '<a href="http://www.cmu.edu/">Carnegie Mellon University</a>',
+            location: 'Pittsburgh, Pennsylvania',
+            date: 'May 2004',
+            position: 'Bachelor of Science in Computer Science, Minor in Mathematical Sciences',
+            position2: '(4-year degree with research component --- Honours Equivalent)',
+            description: 'Coursework in systems programming, artificial intelligence, machine learning, cryptography, computational linguistics, bioinformatics. Systems programming experience, including implementation of a TCP/IP network stack, context-switching kernel, memory manager. Major research project developed a genetic algorithm to solve constrained optimization problems in Mathematica.'
+        } 
+    ]
+};
+
+function isArray(obj) {
+    return Array.isArray(obj);
+}
+function isString(obj) {
+    return (typeof obj === 'string');
+}
+function filterText(text) {
+    text = text
+    .replace(/&/g, '&amp;')
+    .replace(/---/g, '&mdash;')
+    .replace(/--/g, '&ndash;')
+    return text
+}
+
+function makeEl(data, el) {
+    if (isString(data)) {
+        el = el || document.createElement('div');
+        el.innerHTML = filterText(data);
+    }
+
+    else if (isArray(data)) {
+        el = el || document.createElement('ul');
+        for (var i = 0; i < data.length; i++) {
+            var item = data[i];
+            var itemEl = document.createElement('li');
+            makeEl(item, itemEl);
+            el.appendChild(itemEl);
+        }
+    }
+
+    else { /* object */
+        el = el || document.createElement('div');
+        for (var name in data) {
+            var item = data[name];
+            var itemEl = makeEl(item);
+            itemEl.setAttribute('data-key', name);
+            itemEl.className = name.replace(/\W/g, '_');
+            el.appendChild(itemEl);
+        }
+    }
+    return el;
+}
+
+var contentEl = document.getElementById('content');
+contentEl.innerHTML = '';
+makeEl(data, contentEl);
+
+</script>
+</html>

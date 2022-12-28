@@ -10,7 +10,7 @@ var moment = require('moment');
 
 var metadata = {
     collection: "posts",
-    template: "post.jade"
+    layout: "post.jade"
 };
 var metadataMatchers = {
     'title': /<h3>(.*)<\/h3>/i,

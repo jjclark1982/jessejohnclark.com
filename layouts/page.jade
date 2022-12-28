@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    meta(name='description', content= site.description)
+    link(rel='stylesheet', href='/assets/normalize.css')
+    link(rel='stylesheet', href='/assets/hljs-github.css')
+    link(rel='stylesheet', href='/assets/style.css')
+    if (customScript)
+        script!= customScript
+  body
+    .container
+        header
+            h1= title
+            p= description
+
+        article!= contents
+
+        nav
+            each widget in collections.widgets
+                .widget!= widget.contents

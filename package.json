@@ -1,47 +1,54 @@
 {
   "name": "jessejohnclark.com",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "personal website",
-  "main": "index.js",
+  "homepage": "https://jessejohnclark.com/",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jjclark1982/jjclark1982.github.io.git"
+  },
+  "author": {
+    "name": "Jesse Clark",
+    "email": "jesse@modusponens.org"
+  },
+  "license": "code: ISC, content: CC Attribution",
   "scripts": {
     "develop": "gulp develop",
     "build": "gulp build",
     "commit-build": "publish.sh"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:jjclark1982/jjclark1982.github.io.git"
-  },
-  "author": "Jesse Clark <jjclark1982@gmail.com>",
-  "license": "code: ISC, content: CC Attribution",
   "dependencies": {
-    "connect-livereload": "^0.5.2",
-    "del": "^0.1.3",
-    "gulp": "^3.8.10",
-    "highlight.js": "^8.4.0",
-    "jade": "^1.3.0",
-    "metalsmith": "^1.0.1",
-    "metalsmith-autoprefixer": "^0.1.2",
-    "metalsmith-beautify": "0.0.7",
-    "metalsmith-collections": "^0.6.0",
-    "metalsmith-concat": "^1.0.0",
-    "metalsmith-feed": "0.0.6",
+    "@metalsmith/collections": "^1.3.0",
+    "@metalsmith/in-place": "^4.5.0",
+    "@metalsmith/layouts": "^2.6.0",
+    "@metalsmith/markdown": "^1.8.0",
+    "@metalsmith/permalinks": "^2.4.1",
+    "gulp": "^4.0.2",
+    "highlight.js": "^11.7.0",
+    "jstransformer-pug": "^0.4.0",
+    "metalsmith": "^2.5.1",
+    "metalsmith-beautify": "^0.2.0",
+    "metalsmith-feed": "^1.0.0",
     "metalsmith-gravatar": "^0.1.0",
-    "metalsmith-markdown": "^0.2.1",
-    "metalsmith-metallic": "^0.3.1",
+    "metalsmith-metallic": "^2.0.3",
     "metalsmith-more": "^0.2.0",
-    "metalsmith-pagination": "^1.0.0",
-    "metalsmith-pdf": "^1.1.2",
-    "metalsmith-permalinks": "^0.4.0",
-    "metalsmith-publish": "^0.1.3",
-    "metalsmith-templates": "^0.6.0",
-    "moment": "^2.8.4",
-    "normalize.css": "^3.0.2"
+    "metalsmith-pagination": "^1.5.0",
+    "metalsmith-pdf": "^2.0.0",
+    "metalsmith-publish": "^0.1.6",
+    "metalsmith-pug": "^3.0.0",
+    "moment": "^2.29.4",
+    "normalize.css": "^8.0.1",
+    "pug": "^3.0.2"
+  },
+  "overrides": {
+    "lodash": "^4.17.21",
+    "glob-parent": "^6.0.1",
+    "metalsmith-metallic": {
+      "highlight.js": "<10.7.0"
+    }
   },
   "devDependencies": {
-    "express": "^4.10.2",
-    "metalsmith-watch": "^0.2.0",
-    "morgan": "^1.5.0"
+    "serve": "^14.1.2"
   }
 }
