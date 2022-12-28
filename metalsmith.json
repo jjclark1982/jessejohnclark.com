@@ -26,11 +26,15 @@
       "Jesse Clark": "gravatar@jessejohnclark.com"
     },
     "@metalsmith/markdown": {},
+    "metalsmith-more": {
+      "ext": "html",
+      "alwaysAddKey": false
+    },
     "@metalsmith/permalinks": {
       "duplicatesFail": false,
       "pattern": ":collection/:title",
       "relative": false,
-      "date": "YYYY/MM/DD",
+      "date": "YYYY",
       "linksets": [
         {
           "match": { "collection": "posts" },
@@ -77,10 +81,6 @@
         "cache": false,
         "pretty": true
       }
-    },
-    "metalsmith-more": {
-      "ext": "html",
-      "alwaysAddKey": true
     },
     "metalsmith-metallic": {},
     "metalsmith-feed": {

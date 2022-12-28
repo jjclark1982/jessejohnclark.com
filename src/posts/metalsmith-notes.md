@@ -10,6 +10,8 @@ author: Jesse Clark
 
 The `metalsmith` command-line interface allows a build process to be defined by a single JSON file. If you want to vary the build process in different situations, you need to write a script that duplicates much of the logic of the CLI. It's possible to avoid duplication by requiring the CLI binary from another script. This gives us an opportunity to modify the config with conditional or non-serializable data:
 
+<!-- more -->
+
 ```JavaScript
 var config = require('./metalsmith.json');
 // provide a formatting function for use in templates

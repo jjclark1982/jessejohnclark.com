@@ -10,6 +10,8 @@ author: Jesse Clark
 
 It can be useful to invoke external scripts from `cake`, if they are written in another language or simply don't fit in the `Cakefile`. Suppose we have a `scripts` directory populated with various text-based executables, and we want to automatically define a `cake` task for each of those scripts, with an appropriate description, like so:
 
+<!-- more -->
+
 ```shell
 $ ls scripts
 build.py
