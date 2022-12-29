@@ -1,5 +1,3 @@
-@import url(//fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic&subset=latin);
-
 * {
   box-sizing: border-box;
 }
@@ -11,21 +9,8 @@ html, body {
 .container {
   perspective: 1px;
   transform-style: preserve-3d;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
   text-align: center;
-}
-.container::before {
-  content: " ";
-  transform: translateZ(-1px) scale(2);
-  background: url(wood.jpg);
-  position: fixed;
-  left: 0;
-  width: 100%;
-  height: 32768px;
-  text-align: left;
-  top: -50vh;
+  background: #aaa;
 }
 .container>* {
   transform-style: preserve-3d;
@@ -34,7 +19,8 @@ html, body {
   max-width: 42em;
   margin: 2em auto;
   /*background: rgba(255,255,255,0.5);*/
-  background: #ddd url(paper.jpg);
+  /*background: #ddd url(paper.jpg);*/
+  background: #eee;
   border-radius: 3px;
   box-shadow: 0px 0.5em 1.5em 0px rgba(0,0,0,0.66);
   padding: 1em;
@@ -46,6 +32,8 @@ html, body {
   display: inline-block;
   margin-bottom: 0;
   padding: 0 2em;
+  background: transparent;
+  box-shadow: initial;
 }
 /*.container>article {
   padding: 1em;
@@ -83,10 +71,10 @@ article > header > .time {
 }
 
 body {
-  font: 1.3em "Vollkorn", Palatino, Times;
+  font: 1.3em Palatino, Times, serif;
   color: #333;
   line-height: 1.4;
-  }
+}
 
 .container code {
   font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
