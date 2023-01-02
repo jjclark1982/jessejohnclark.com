@@ -58,8 +58,9 @@ html
             ul
                 each file in collections[collectionName]
                     li
+                        time.published(datetime=file.date)= formatDate(file.date, "YYYY-MM-DD")
+                        = " "
                         a(href="/"+file.path)= file.title
-                        time.published(datetime=file.date)= formatDate(file.date)
 
 
         nav
