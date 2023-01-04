@@ -50,6 +50,7 @@
     }
   },
   "devDependencies": {
-    "serve": "^14.1.2"
+    "serve": "^14.1.2",
+    "split": "^1.0.1"
   }
 }

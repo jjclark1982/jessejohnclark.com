@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 // usage: for F in contents/posterous-import/*.html; do ./html2md.js < $F > ${F}.md && rm $F; done
-// find contents/posterous-import -name '*.html' |\
-// sed 's/\(.*\)\.html/.\/html2md.js < \1.html > \1.md \&\& rm \1.html/' |\
+// find src/twitter-import -name '*.md' |\
+// sed 's/\(.*\)\.md/mv \1.md \1.md.bak; .\/html2md.js < \1.md.bak > \1.md/' |\
 // sh -x
 
 var split = require('split');
@@ -10,7 +10,9 @@ var moment = require('moment');
 
 var metadata = {
     collection: "posts",
-    layout: "post.jade"
+    layout: "post.jade",
+    author: "Jesse Clark",
+    publish: "private"
 };
 var metadataMatchers = {
     'title': /<h3>(.*)<\/h3>/i,
