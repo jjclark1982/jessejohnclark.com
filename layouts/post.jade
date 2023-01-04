@@ -22,9 +22,9 @@ html
                     //- img(src=gravatar[author])
                 .time| Published 
                     time.published(datetime=date)= formatDate(date, "LL")
-                if (stats)
+                if (editDate)
                     .time| Last edited 
-                        time.modified(datetime=stats.mtime)= formatDate(stats.mtime, "LLL")
+                        time.modified(datetime=editDate)= formatDate(editDate, "LLL")
 
             != contents
 
