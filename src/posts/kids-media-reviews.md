@@ -3,11 +3,16 @@ title: Kids' Media Reviews
 author: Jesse Clark
 date: 2022-05-31
 editDate: 2022-10-13
+collection: posts
+layout: post.jade
+permalink: kids-media-reviews/
 ---
 
-## Video Games
+Our favorite family-friendly video games (and other media) with no realistic violence and no microtransactions.
 
-Our favorite family-friendly video games with no realistic violence and no microtransactions.
+<!-- more -->
+
+## Video Games
 
 I have played through all of these with my 4-6 year old kid.
 Many are co-operative, some are single-player and we can trade off with the easier and harder parts, or treat it like a "choose your own adventure" interaction.
