@@ -3,6 +3,8 @@ title: Alignment Chart
 author: Jesse Clark
 date: 2022-10-18
 editDate: 2022-10-21
+collection: posts
+layout: post.jade
 ---
 
 > A traditional alignment chart uses a 2\-axis grid to describe 9 moral alignments:  
@@ -10,7 +12,9 @@ editDate: 2022-10-21
 > Good \- Evil  
 > Lawful \- Chaotic 
 
-![3x3 alignment chart](./good-evil-lawful-chaotic.png)
+<!-- more -->
+
+![3x3 alignment chart](/posts/alignment-chart/good-evil-lawful-chaotic.png)
 
 > But it is difficult to take alternative moral perspectives seriously when some of them are labeled as "good"\.  
 >   
@@ -26,7 +30,7 @@ editDate: 2022-10-21
 > Chaotic: "The ends justify the means"  
 > Evil: "The ends justify themselves" 
 > 
-> ![3-axis chart](./3-axis.png)
+> ![3-axis chart](/posts/alignment-chart/3-axis.png)
 
 > This 3\-axis space has 8 quadrants which we can visualize as 2 political compasses:  
 >   
@@ -39,12 +43,12 @@ editDate: 2022-10-21
 > Chaotic Evil \(Gremlins\)  
 > Lawful Chaotic Evil \(equivalent to neutral\) 
 
-![2-political-compass chart](./2-compass.png)
+![2-political-compass chart](/posts/alignment-chart/2-compass.png)
 
 > By combining the neutral categories, we get a chart with 6 familiar alignments, 1 new alignment, and more meaningful tradeoffs for characters who cannot claim to be simply Good\. 
 > 
 
-![7-point triangle chart](./7-alignment.png)
+![7-point triangle chart](/posts/alignment-chart/7-alignment.png)
 
 
 > This 3\-axis system maps neatly onto traditional depictions of winged creatures:  
