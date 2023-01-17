@@ -22,7 +22,9 @@ layout: post.jade
 
 > For example, Paladins are good at following laws, Demons are good at getting what they want, and Devils are good at both\.  
 >   
-> The Fay races have a more thorough understanding of consequentialist ethics, and their Chaotic morality is not simply the opposite of following laws\.
+> The Fay races have a more thorough understanding of consequentialist ethics, and their Chaotic morality is not simply the opposite of following laws.
+> Fairies experience time backwards\. They remember the future but can only guess at the past. That means that their ethics must be based on a superhuman understanding of consequences. If a fairy wants something that is not constantly guarded, then they can take it when it is not guarded. If a fairy wants something from you, and can convince you that you are getting a good deal in exchange, then they can offer you that deal. They already know whether they will have to follow through or not.
+
 
 > Instead of including Good in the alignment chart, consider the remaining labels as 3 independent axes:  
 >   
