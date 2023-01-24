@@ -15,6 +15,11 @@
     }
   },
   "plugins": {
+    "metalsmith-pdf": {
+      "pattern": "jobs/jjclark-resume.html",
+      "printMediaType": true,
+      "pageSize": "letter"
+    },
     "../format-dates.js": {},
     "metalsmith-publish": {
       "draft": false,
@@ -89,11 +94,6 @@
     },
     "metalsmith-feed": {
       "collection": "posts"
-    },
-    "metalsmith-pdf": {
-      "pattern": "jobs/jjclark-resume.html",
-      "printMediaType": true,
-      "pageSize": "letter"
     }
   }
 }
