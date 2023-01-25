@@ -18,7 +18,8 @@
     "metalsmith-pdf": {
       "pattern": "jobs/jjclark-resume.html",
       "printMediaType": true,
-      "pageSize": "letter"
+      "pageSize": "Letter",
+      "orientation": "Portrait"
     },
     "../format-dates.js": {},
     "metalsmith-publish": {
