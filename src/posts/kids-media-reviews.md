@@ -8,9 +8,17 @@ layout: post.jade
 permalink: kids-media-reviews/
 ---
 
-Our favorite family-friendly video games (and other media) with no realistic violence and no microtransactions.
+Our favorite family-friendly video games (and other media)
 
 <!-- more -->
+
+My main criteria for a productive and enriching gaming experience:
+
+- no microtransactions
+- no "engagement" algorithms
+- no realistic violence
+
+Video games are a great medium for seeing things from new perspectives, practicing logic and dexterity, and story comprehension.
 
 ## Video Games
 
