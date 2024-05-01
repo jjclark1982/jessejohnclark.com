@@ -135,6 +135,15 @@ Many are co-operative, some are single-player and we can trade off with the easi
 - controller or mouse/keyboard
 - optional reading
 
+Review of Slime Rancher
+
+Slime Rancher is a cozy farm-life simulator with an emphasis on exploration. There are charming environments, quaint characters, and relaxing puzzles.
+
+It is probably the most family-friendly game in its category. There is a lot of pointing and aiming with first-person 3D controls, but basically no violence. There is a simulated daily cycle, but no time pressure. Most of the reading is optional, and the counting is very simple. So it is suitable for a kid just learning to read and compare numbers.
+
+The progression in the original Slime Rancher is mostly based on collecting certain numbers of items, which can be found through exploration and cultivation. The sequel introduces more tiers of tools required to unlock more items which can be used to craft more tools.
+
+
 #### Roblox
 - not recommended (microtransactions, chat with strangers)
 
