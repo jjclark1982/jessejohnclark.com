@@ -107,10 +107,10 @@
             clear: both;
         }
 
-        #content ul.items {
+        #content ul[data-key*="items"] {
             list-style-type: disc;
         }
-        #content ul.items li {
+        #content ul[data-key*="items"] li {
             margin: 0 0 0 2em;
             page-break-inside: avoid;
         }
@@ -164,7 +164,7 @@
         .position {
             font-weight: bold;
         }
-        /*.Employment > li:nth-child(4) > ul > li {
+        /*.Employment > li:nth-child(6) > ul > li {
             display:none;
         }*/
 	</style>
@@ -206,7 +206,7 @@ var data = {
         }
     ],
     "Summary": [{
-        title: '<p>Product-oriented, research-minded computer scientist. Obsessed with cool technology like spaceflight, social robots, and single-molecule sensors.</p>',
+        title: '<p>Product-oriented, research-minded computer scientist. Obsessed with cool technology like single-molecule sensors, social robots, and spaceflight.</p>',
         items: [
             'Developed product prototypes and performed demonstrations used to secure funding for early-stage startups.',
             'Produced visualizations and automated reports to help find insights in data for space mission teams and B2C sales departments.',
@@ -220,7 +220,13 @@ var data = {
             location: 'Mountain View, California',
             date: 'May 2023 -- May 2024',
             position: 'Principal Algorithm Engineer',
-            description: 'Established dry lab operations at a new office for a Chinese biotechnology company (深圳今是科技有限公司).<br/><br/>Developed primary analysis algorithms for a nanopore DNA sequencing instrument. Designed statistical models to infer hidden variables from raw sensor data. Systematically compared algorithms for signal processing, base-calling, and sequence alignment. Selected high-accuracy algorithms to produce neural network training data, and high-performance algorithms for use on production hardware.'
+            description: 'Established dry-lab operations at a new office for a Chinese biotechnology company (深圳今是科技有限公司).', // 今是科技
+            items: [
+                'Hired a data science team, managed local projects, and reported to head office.',
+                'Developed primary analysis algorithms for a nanopore DNA sequencing instrument.',
+                'Designed statistical models to infer hidden variables from raw time-series sensor data, and calculate Phred quality scores.',
+                'Systematically compared algorithms for signal processing, base-calling, and sequence alignment. Selected high-accuracy algorithms to produce neural network training data, and high-performance algorithms for use in production.'
+            ]
         },
         {
             logo: '<img src="Roche logo.svg">',
@@ -228,7 +234,7 @@ var data = {
             location: 'Santa Clara, California',
             date: 'December 2019 -- May 2023',
             position: 'Principal Software Engineer',
-            description: 'Developed software for <a href="https://en.wikipedia.org/wiki/Nanopore_sequencing">nanopore sequencing</a> instruments. Worked with all aspects of primary DNA analysis, including molecule detection, level-calling, base-calling, quality metrics, and neural network training.<br><br>Adapted mature data science pipelines to meet the needs of new experiments. Coordinated data compatibility between wet-lab experimentalists, GPU-accelerated signal processing, machine learning model training, and circuit simulations. Created a waveform model in data-oriented Python, which allowed experiment design files to be used directly in analysis and simulations. Created data validation tools that allowed entire categories of errors to be caught before expending compute resources on analysis. Developed AirFlow pipelines with TypeScript/React frontends.'
+            description: 'Developed software for <a href="https://en.wikipedia.org/wiki/Nanopore_sequencing">nanopore sequencing</a> instruments. Worked with all aspects of primary DNA analysis, including molecule detection, level-calling, base-calling, quality metrics, and neural network training. Implemented data pipelines with <a href="https://airflow.apache.org/">AirFlow</a> and <a href="https://www.jenkins.io/">Jenkins</a>.<br><br>Coordinated data compatibility between wet-lab experimentalists, GPU-accelerated signal processing, machine learning model training, and statistical simulations. Created validation tools to enforce data compatibility agreements and prevent unnecessary processing or troubleshooting.'
         },
         {
             logo: '<img src="UTS_logo.svg">',
@@ -236,7 +242,21 @@ var data = {
             location: 'Ultimo, New South Wales',
             date: 'November 2014 -- December 2019',
             position: 'Senior Software Engineer',
-            description: 'Responsible for software operations for a RoboCup@Home team from its beginning until it won first place in a global competition. Established on-premises source control, automated testing, packaging, installation, launching, and diagnostics of robot applications, and trained team to use them.<br><br>Overhauled operations at <a href="http://themagiclab.org/">The Innovation and Enterprise Research Lab</a> to use modern source control, package management, and continuous integration. Organized the release of <a href="http://www.themagiclab.org/software">open-source software packages</a>. Developed software for social robotics experiments. Presented research results at conferences.<br><br>Delivered lectures on iOS application development, digital forensics, SQL databases, neural networks, continuous integration, Docker containers, and web components. Developed curriculum and introduced automated evaluation of programming coursework. Mentored research students in fully-reproducible research methods. Mentored entrepreneurship students in rapid application development techniques.'
+            description: 'Responsible for software operations for a <a href="http://themagiclab.org/">social robotics research lab</a>.',
+            items: [
+                'We won first place in the global <a href="https://athome.robocup.org/">RoboCup@Home</a> competition. I was responsible for software system reliability and natural language processing.',
+                'Developed software for social robotics experiments, and published several <a href="http://www.themagiclab.org/software">open-source software packages</a>.',
+                'Presented research results at conferences.',
+                'Mentored entrepreneurship students in rapid application development techniques.'
+            ],
+            description2: 'Developed curriculum and delivered university lectures and masterclasses on these subjects:',
+            items2: [
+                'iOS Application Development (including automated evaluation of coursework with CI-driven unit tests)',
+                'Digital Forensics',
+                'SQL databases used for NASA mission planning',
+                'Neural networks for human-robot interaction (object, face, and voice perception)',
+                'Software Engineering (source control, continuous integration, Python and Debian package management, Docker containers, web components)'
+            ]
         },
         {
             logo: '<img src="code4fun_logo_color.svg">',
@@ -254,11 +274,37 @@ var data = {
             note: 'Lesson plans are available for licensing.'
         },
         {
+            organization: '<a href="http://destinationsc.co/">Destination Software</a>',
+            date: "2013 -- 2014",
+            position: 'Head of Product Development',
+            description: 'Developed a high-availability e-commerce web server for the travel and hospitality industry. Implemented automated deployment and zero-downtime updates of Node.js and <a href="https://riak.com/">Riak</a> servers. Supported web-accessible map/reduce queries of combined domain data and analytics data. Trained new developers in MVC and Agile methodologies.'
+        },
+        {
+            organization: '<a href="http://www.gobold.ly/">GoBoldly</a>',
+            location: 'San Francisco, California',
+            date: "2013",
+            position: 'Full-Stack Developer',
+            description: 'Implemented a novel isomorphic web application engine that works even in javascript-disabled environments, and progressively enhances based on available functionality. Implemented an iOS frontend and <a href="parse.com">Parse.com</a> backend for a geo-social networking app.'
+        },
+        {
+            organization: '<a href="http://www.scanadu.com/">Scanadu</a>',
+            location: 'Mountain View, California',
+            date: "2012",
+            position: "iOS Developer",
+            description: "Developed an iPhone application to capture images of molecular test strips and interpret the results in an augmented reality display."
+        },
+        {
+            organization: '<a href="http://soundwave.co">Soundwave</a>',
+            date: "2011",
+            description: 'Developed a prototype iPad music education app to present to investors.'
+        },
+        {
             organization: '<a href="https://modusponens.org/">Modus Ponens, LLC</a>',
-            // date: '2011 -- 2014',
+            date: '2011 -- 2014',
             location: 'Palo Alto, California',
             position: 'Self-owned Consulting Business',
-            description: 'Founded a new business to develop web and mobile applications for Silicon Valley startups. Applied many cutting-edge technologies to deliver maximum value to clients. Led teams of local and remote designers and developers. Had contact with prominent venture capitalists. <span class="no_print">Notable clients include:</span>',
+            description: 'Founded a new business to develop web and mobile applications for Silicon Valley startups. Applied many cutting-edge technologies to deliver maximum value to clients. Led teams of local and remote designers and developers. Had contact with prominent venture capitalists.', //' <span class="no_print">Notable clients include:</span>',
+            /*
             items: [
                 {
                     organization: '<a href="http://maverickapp.co/">Maverick Poker</a>',
@@ -270,23 +316,6 @@ var data = {
                     organization: '<a href="https://www.onelessdesk.com.au/">OneLessDesk</a>',
                     date: "2014",
                     description: 'Built a message-queue-based tool for business process management.'
-                },
-                {
-                    organization: '<a href="http://destinationsc.co/">Destination Software</a>',
-                    date: "2013 -- 2014",
-                    position: 'Head of Product Development',
-                    description: "Developed a high-availability e-commerce web server for the travel and hospitality industry. Implemented automated deployment and zero-downtime updates of Node.js and Riak servers. Supported web-accessible map/reduce queries of combined domain data and analytics data. Trained new developers in MVC and Agile methodologies."
-                },
-                {
-                    organization: '<a href="http://www.gobold.ly/">GoBoldly</a>',
-                    date: "2013",
-                    position: 'Full-Stack Developer',
-                    description: 'Implemented a novel isomorphic web application engine that works even in javascript-disabled environments, and progressively enhances based on available functionality. Implemented an iOS frontend and <a href="parse.com">Parse.com</a> backend for a geo-social networking app.'
-                },
-                {
-                    organization: '<a href="http://www.scanadu.com/">Scanadu</a>',
-                    date: "2012",
-                    description: "Developed an iPhone application to capture images of flu test strips and interpret the results."
                 },
                 // {
                 //     organization: '<a href="http://www.noledgy.com/">Noledgy</a>',
@@ -310,11 +339,6 @@ var data = {
                     description: 'Developed authentication process, remote procedure call API, and database schema for a political Facebook game.'
                 },
                 {
-                    organization: '<a href="http://soundwave.co">Soundwave</a>',
-                    date: "2011",
-                    description: 'Developed a prototype iPad music education app to present to investors.'
-                },
-                {
                     organization: '<a href="http://schmoooz.com/">Schmoooz</a>',
                     date: '2011',
                     description: 'Developed a Node.js backend and an iPhone frontend for a geolocation-based chat service.'
@@ -335,6 +359,7 @@ var data = {
                     description: 'Deployed a Ruby on Rails site to track and compare World of Warcraft player statistics, and associated administration tools. Developed an interpreter for dynamic character equipment formulas extracted from game data files.'
                 }
             ]
+            */
         },
         {
             logo: '<img src="NASA_logo.svg">',
@@ -350,7 +375,7 @@ var data = {
             location: 'Greenbelt, Maryland',
             date: 'June 2004 -- June 2007',
             position: 'Computer Engineer',
-            description: 'Developed robotics and graphics software to simulate contact dynamics for <a href="http://en.wikipedia.org/wiki/STS-125">Hubble Space Telescope Servicing Mission 4</a>. Used a <a href="http://www.fanucrobotics.com/">FANUC</a> industrial robot and a computer running a physics simulation to mimic the behavior of a <a href="https://en.wikipedia.org/wiki/Canadarm">Canadarm</a>, which is too lightweight to operate normally in Earth gravity. Used capacative sensors to guide robotic orientation, and summarized those sensors in a congressional <a href="https://en.wikipedia.org/wiki/Design_review_(U.S._government)">design review</a>. <br> Recovered legacy climate data from the <a href="http://en.wikipedia.org/wiki/Nimbus_program">Nimbus</a> and <a href="http://en.wikipedia.org/wiki/Television_Infrared_Observation_Satellite">TIROS</a> projects. Wrote Perl scripts to correct for degradation and translate to modern formats. Visualized results in Mathematica.'
+            description: 'Developed robotics and graphics software to simulate contact dynamics for <a href="http://en.wikipedia.org/wiki/STS-125">Hubble Space Telescope Servicing Mission 4</a>. Used a <a href="http://www.fanucrobotics.com/">FANUC</a> industrial robot and a computer running a physics simulation to mimic the behavior of a <a href="https://en.wikipedia.org/wiki/Canadarm">Canadarm</a>, which is too lightweight to operate normally in Earth gravity. Used capacative sensors to guide robotic orientation, and summarized those sensors in a congressional <a href="https://en.wikipedia.org/wiki/Design_review_(U.S._government)">design review</a>. <br> Recovered legacy climate data from the <a href="http://en.wikipedia.org/wiki/Nimbus_program">Nimbus</a> and <a href="http://en.wikipedia.org/wiki/Television_Infrared_Observation_Satellite">TIROS</a> projects. Wrote Perl scripts to correct for degradation and translate to modern formats. Visualized results in <a href="https://www.wolfram.com/mathematica/">Mathematica</a>.'
         },
         {
             organization: '<a href="http://woz.com/">Wheels of Zeus</a>',
@@ -363,7 +388,7 @@ var data = {
             location: 'Pittsburgh, Pennsylvania',
             date: 'May 2002 -- July 2002',
             position: 'Intern',
-            description: 'Designed and developed a graphical user interface for hospital patient database management and integration with in-house tools. Developed a C program to align x-rays with CT scans to track implant drift over time. This used a 6-dimensional <acronym title="Broyden-Fletcher-Goldfarb-Shanno">BFGS</acronym> search based on 3-d models and DICOM data. Modified control hardware for use with computer systems in the operating room.'
+            description: 'Designed and developed a graphical user interface for hospital patient database management and integration with in-house tools. Developed a C program to align x-rays with CT scans to track implant drift over time. This used a 6-dimensional <acronym title="Broyden-Fletcher-Goldfarb-Shanno">BFGS</acronym> search based on 3-d models and DICOM data. Modified control hardware for use with augmented reality in the operating room.'
         },
         {
             organization: '<a href="http://refractivedialer.com/">Refract Media</a>',
