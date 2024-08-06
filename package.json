@@ -14,6 +14,7 @@
   },
   "license": "code: ISC, content: CC Attribution",
   "scripts": {
+    "clean": "rm -rf ./build",
     "develop": "gulp develop",
     "build": "metalsmith",
     "commit-build": "publish.sh"
